@@ -1,0 +1,105 @@
+{% load cache %}
+{% load i18n static %}
+
+
+<div class="ProductCard">
+  <div class="ProductCard-look">
+    {% if product.preview %}
+      <div class="ProductCard-photo">
+        <img src="{{ product.preview.url }}"/>
+      </div>
+      <div class="ProductCard-picts">
+        <a class="ProductCard-pict ProductCard-pict_ACTIVE" href="{{ product.preview.url }}">
+          <img src="{{ product.preview.url }}" alt=""/>
+        </a>
+        {% for i_img in images %}
+          <a class="ProductCard-pict" href="{{ i_img.image.url }}">
+            <img src="{{ i_img.image.url }}" alt=""/>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <img src="{% static 'assets/img/content/home/placeholder.png' %}"
+           alt="empty_photo"/>
+    {% endif %}
+  </div>
+  <div class="ProductCard-desc">
+    <div class="ProductCard-header">
+      <h2 class="ProductCard-title">
+        {{ product.name }}
+      </h2>
+      <div class="ProductCard-info">
+        <div class="ProductCard-cost">
+          <div class="ProductCard-price">
+            {% if product.get_average_price != None %}
+              {% if product.get_discount_price %}
+                <span class="Card-price">${{ product.get_discount_price }}</span>
+                <span class="ProductCard-priceOld">${{ product.get_average_price }}</span>
+              {% else %}
+                <span class="Card-price">${{ product.get_average_price }}</span>
+              {% endif %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ProductCard-text">
+      <ul>
+        {% for text in product.description.card_text %}
+          <li>{{ text }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="ProductCard-cart">
+      <div class="ProductCard-cartElement ProductCard-cartElement_amount">
+        <form method="post" id="amount" action="#modal_open">
+          {% csrf_token %}
+          <div class="Amount Amount_product">
+            <button class="Amount-remove" type="button">
+            </button>
+            <input class="Amount-input form-input" name="amount" type="text" value="1"/>
+            <button class="Amount-add" type="button">
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="ProductCard-cartElement">
+        <button class="btn btn_primary" form="amount">
+          <img class="btn-icon" src="{% static 'assets/img/icons/card/cart_white.svg' %}"
+               alt="cart_white.svg"/>
+          {% translate 'Купить' %}
+        </button>
+      </div>
+      {% if not toast_message %}
+        <div id="modal_open" class="my_modal">
+          <div class="my_modal-dialog">
+            <div class="my_modal-content">
+              <div class="my_modal-header">
+                <p class="my_modal-title">{% translate 'Поздравляем' %}!</p>
+                <a href="#" title="{% translate 'Закрыть модальное окно' %} class="close">×</a>
+              </div>
+              <div class="my_modal-body">
+                <p>{% translate 'Товар успешно добавлен в корзину' %}!</p>
+                            </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+    <div class="ProductCard-footer">
+      <div class="ProductCard-tags">
+        {% if product.tags.all %}
+          <strong class="ProductCard-tagsTitle">{% translate 'Тэги' %}:
+          </strong>
+          {% for i_tag in product.tags.all %}
+            {% if not forloop.last %}
+              <a href="#">{{ i_tag }},</a>
+            {% else %}
+              <a href="#">{{ i_tag }}</a>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

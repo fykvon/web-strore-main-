@@ -1,0 +1,212 @@
+{% extends 'base/base.html' %}
+{% load phone_tags %}
+{% load i18n  static %}
+{% load cache %}
+
+
+{% block content %}
+  <div class="Middle Middle_top">
+    <div class="Middle-top">
+      <div class="wrap">
+        <div class="Middle-header">
+          <h1 class="Middle-title">{% translate 'About ' %}{{ seller.name_store }}
+          </h1>
+          <ul class="breadcrumbs Middle-breadcrumbs">
+            <li class="breadcrumbs-item"><a href="{% url 'store:index' %}">{% translate 'home' %}</a>
+            </li>
+            <li class="breadcrumbs-item breadcrumbs-item_current"><span>{% translate 'About Us' %}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="Section Section_column Section_columnLeft Section_columnWide">
+      <div class="wrap">
+        <div class="Section-column">
+          <div class="Section-columnSection Section-columnSection_mark">
+            <div class="media media_advantage">
+              <div class="media-image">
+                <img src="{% static 'assets/img/icons/advantages/shipping.svg' %}" alt="shipping.svg"/>
+              </div>
+              <div class="media-content">
+                <strong class="media-title">{% translate 'Shipping & Returns' %}</strong>
+                <p class="media-text">{% translate 'World wide shipping' %}</p>
+              </div>
+            </div>
+          </div>
+          <div class="Section-columnSection Section-columnSection_mark">
+            <div class="media media_advantage">
+              <div class="media-image">
+                <img src="{% static 'assets/img/icons/advantages/moneyBack.svg' %}" alt="moneyBack.svg"/>
+              </div>
+              <div class="media-content">
+                <strong class="media-title">{% translate 'Money Back' %}
+                </strong>
+                <p class="media-text">{% translate 'Guaranted payments' %}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="Section-columnSection Section-columnSection_mark">
+            <div class="media media_advantage">
+              <div class="media-image">
+                <img src="{% static 'assets/img/icons/advantages/support.svg' %}" alt="support.svg"/>
+              </div>
+              <div class="media-content">
+                <strong class="media-title">{% translate 'Support Policy' %}</strong>
+                <p class="media-text">{% translate 'Fast support team' %}</p>
+              </div>
+            </div>
+          </div>
+          <div class="Section-columnSection Section-columnSection_mark">
+            <div class="media media_advantage">
+              <div class="media-image">
+                <img src="{% static 'assets/img/icons/advantages/quality.svg' %}" alt="quality.svg"/>
+              </div>
+              <div class="media-content">
+                <strong class="media-title">{% translate 'Quality Guarantee' %}</strong>
+                <p class="media-text">{% translate 'Best guaranted items' %}</p>
+              </div>
+            </div>
+          </div>
+          {% if seller.phone %}
+            <div class="Section-columnSection Section-columnSection_mark">
+              <div class="media media_middle">
+                <div class="media-image"><img src="{% static 'assets/img/icons/contacts/phone.svg' %}" alt="phone.svg"/>
+                </div>
+                <div class="media-content">
+                  {% translate 'Phone' %}:+7 {% change_phone_format seller.phone %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+          {% if seller.address %}
+            <div class="Section-columnSection Section-columnSection_mark">
+              <div class="media media_middle">
+                <div class="media-image">
+                  <img src="{% static 'assets/img/icons/contacts/address.svg' %}" alt="address.svg"/>
+                </div>
+                <div class="media-content">
+                  {{ seller.address }}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+          {% if seller.user.email %}
+            <div class="Section-columnSection Section-columnSection_mark">
+              <div class="media media_middle">
+                <div class="media-image">
+                  <img src="{% static 'assets/img/icons/contacts/mail.svg' %}" alt="mail.svg"/>
+                </div>
+                <div class="media-content">
+                  {{ seller.user.email }}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+          <div class="Section-columnSection">
+            <header class="Section-header">
+              <strong class="Section-title">{% translate 'Follow Us' %}
+              </strong>
+            </header>
+            <div class="Section-columnContent">
+              <div class="Footer-payments Footer-payments_column">
+                <div><img src="{% static 'assets/img/icons/socialContent/fb.png' %}" alt="fb.png"/>
+                </div>
+                <div><img src="{% static 'assets/img/icons/socialContent/tw.png' %}" alt="tw.png"/>
+                </div>
+                <div><img src="{% static 'assets/img/icons/socialContent/gg.png' %}" alt="gg.png"/>
+                </div>
+                <div><img src="{% static 'assets/img/icons/socialContent/in.png' %}" alt="in.png"/>
+                </div>
+                <div><img src="{% static 'assets/img/icons/socialContent/pt.png' %}" alt="pt.png"/>
+                </div>
+                <div><img src="{% static 'assets/img/icons/socialContent/ml.png' %}" alt="ml.png"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="Section-content">
+          <article class="Article">
+            <div class="Article-section">
+              <div class="row row_verticalCenter row_maxHalf">
+                <div class="row-block">
+                  <h2>{% translate 'Why Choose' %} {{ seller.name_store }}?
+                  </h2>
+                  {% if seller.description %}
+                    <p>{{ seller.description }}</p>
+                  {% else %}
+                    <p>{% translate 'Продавец пока не оставил описания' %}</p>
+                  {% endif %}
+                  <div><a class="btn btn_primary" href="#">{% translate 'Get Started' %}</a>
+                  </div>
+                </div>
+                <div class="row-block">
+                  {% if seller.avatar %}
+                    <div class="pict">
+                      <img src='{{ seller.avatar.url }}'>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            <header class="Section-header">
+              <h2 class="Section-title">{% translate 'Popular Products' %}
+              </h2>
+            </header>
+            <div class="Cards">
+              {% if top_offers %}
+                {% cache 3600 top_offers seller.id %}
+                  {% for offer in top_offers %}
+                    <div class="Card">
+                      <a class="Card-picture" href="#">
+                        {% if offer.product.preview %}
+                          <img src="{{ offer.product.preview.url }}"/>
+                        {% else %}
+                          <img src="{% static 'assets/img/content/home/placeholder.png' %}"
+                               alt="empty_photo"/>
+                        {% endif %}
+                      </a>
+                      <div class="Card-content">
+                        <strong class="Card-title">
+                          <a href="{% url 'store:product-detail' slug=offer.product.slug %}">
+                            {{ offer.product.name }}
+                          </a>
+                        </strong>
+                        <div class="Card-description">
+                          <div class="Card-cost">
+                            <span class="Card-price">${{ offer.unit_price }}</span>
+                          </div>
+                          <div class="Card-category">
+                            {% for tag in offer.product.tags.all %}
+                              {% if not forloop.last %}{{ tag }}/{% else %}{{ tag }}{% endif %}
+                            {% endfor %}
+                          </div>
+                          <div class="Card-hover">
+                            <a class="Card-btn" href="{% url 'cart:add_product_to_cart' offer.id %}">
+                              <img src="{% static 'assets/img/icons/card/cart.svg' %}" alt="cart.svg"/>
+                            </a>
+                            <a class="Card-btn" href="">
+                              <form action="{% url 'compare:add_to_comparison' offer.product.id %}"
+                                    method="get">
+                                <button type="submit">
+                                  <img src="{% static 'assets/img/icons/card/change.svg' %}"
+                                       alt="change.svg"/>
+                                </button>
+                              </form>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endfor %}
+                {% endcache %}
+              {% endif %}
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

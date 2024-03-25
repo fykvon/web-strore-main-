@@ -1,0 +1,33 @@
+{% load widget_tweaks %}
+{% load i18n static %}
+
+
+{% if user.is_authenticated %}
+    <header class="Section-header Section-header_product">
+      <h3 class="Section-title">{% translate 'Добавить отзыв' %}
+      </h3>
+    </header>
+    <div class="Tabs-addComment">
+      <form class="form" action="" method="post">
+
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form.review.errors }}
+            {% translate 'Отзыв' as review %}
+            {% render_field form.review class="form-textarea" name="review" id="review" placeholder=review %}
+        </div>
+        <div class="form-group">
+            <button class="btn btn_muted" type="submit">{% translate 'Отправить отзыв' %}
+            </button>
+            </div>
+      </form>
+    </div>
+    {% else %}
+        <div >
+            <div class="Section-header Section-header_product">
+              <h3 class="Section-title">{% translate 'Чтобы оставить отзыв, вам нужно авторизоваться' %}.</h3>
+                <a class="btn btn_primary" href="#">{% translate 'Вход' %}</a>
+            </div>
+
+        </div>
+    {% endif %}

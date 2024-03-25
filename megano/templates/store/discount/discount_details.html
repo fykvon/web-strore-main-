@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+  <div class="Middle Middle_top">
+    {% include "store/discount/breadcrumbs.html" %}
+    <div class="Section">
+      <div class="wrap">
+        <div class="Cards Cards_blog">
+            <div class="Card"><a class="Card-picture" href="{% url 'store:discounts' %}">
+              {% if discount.image %}<img src="{{ discount.image.url }}" alt="product.png"/>{% endif %}</a>
+              {% if discount.valid_from %}
+                <div class="Card-date">
+                  <strong class="Card-date-number">{{ discount.valid_from|date:"d" }}
+                  </strong><span class="Card-date-month">{{ discount.valid_from|date:"M" }}</span>
+                </div>
+              {% endif %}
+              {% if discount.valid_to %}
+                {#            <div class="Card-date">#}
+                <div class="Card-date {% if discount.valid_from %}Card-date_to{% endif %}">
+                  <strong class="Card-date-number">{{ discount.valid_to|date:"d" }}
+                  </strong><span class="Card-date-month">{{ discount.valid_to|date:"M" }}</span>
+                </div>
+              {% endif %}
+              <div class="Card-content">
+                <strong class="Card-title"><a href="#">{{ discount.title }}</a>
+                </strong>
+                <div class="Card-description">{{ discount.description }}
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

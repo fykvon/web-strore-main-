@@ -1,0 +1,61 @@
+{% extends 'authorization/account.html' %}
+{% load i18n static %}
+
+
+{% block content123 %}
+  <div class="Section-content">
+    {% if products %}
+      <div class="Cards">
+        {% for product in products %}
+          <div class="Card">
+            <a class="Card-picture" href="{% url 'store:product-detail' slug=product.slug %}">
+              {% if product.preview %}
+                <img src="{{ product.preview.url }}"/>
+              {% else %}
+                <img src="{% static 'assets/img/content/home/placeholder.png' %}"
+                     alt="empty_photo"/>
+              {% endif %}
+            </a>
+            <div class="Card-content">
+              <strong class="Card-title">
+                <a href="{% url 'store:product-detail' slug=product.slug %}">
+                  {{ product.name }}
+                </a>
+              </strong>
+              <div class="Card-description">
+                <div class="Card-cost">
+                  {% if product.price %}
+                    <span class="Card-price">${{ product.get_average_price }}</span>
+                  {% endif %}
+                </div>
+                <div class="Card-category">
+                  {% if product.tags.all %}
+                    {% for tag in product.tags.all %}
+                      {% if not forloop.last %}{{ tag }}/{% else %}{{ tag }}{% endif %}
+                    {% endfor %}
+                  {% endif %}
+                </div>
+                <div class="Card-hover">
+                  {% if product.offers.all %}
+                    <a class="Card-btn" href="{% url 'cart:add_product_to_cart' product.offers.first.id %}">
+                      <img src="{% static 'assets/img/icons/card/cart.svg' %}" alt="cart.svg"/>
+                    </a>
+                  {% endif %}
+                  <a class="Card-btn" href="#">
+                    <form action="{% url 'compare:add_to_comparison' product.id %}" method="get">
+                      <button type="submit">
+                        <img src="{% static 'assets/img/icons/card/change.svg' %}" alt="change.svg"/>
+                      </button>
+                    </form>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <h3>{% translate 'Просмотров в истории пока нет' %}</h3>
+    {% endif %}
+  </div>
+{% endblock %}

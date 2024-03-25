@@ -1,0 +1,35 @@
+{% extends "base/base.html" %}
+{% load i18n static %}
+
+
+{% block bottom_header %}
+{% endblock %}
+
+{% block content %}
+  <div class="wrapper">
+    <div class="header">
+      <h3 class="sign-in">{% translate 'Вход' %}</h3>
+    </div>
+    <div class="clear"></div>
+    <form action="" method="post">
+      {% csrf_token %}
+      <div>
+        {{ form.email }}
+      </div>
+      <div>
+        {{ form.password }}
+      </div>
+      <div>
+        <input type="submit" value={% translate "Войти" %}>
+      </div>
+      <a class="forgot-label" href="">{% translate 'Забыли пароль' %}?</a>
+      <a class="registr" href="{% url 'profile:register' %}">
+        {% translate 'Регистрация' %}
+      </a>
+    </form>
+    {% if error %}
+      <p>{{ error }}</p>
+    {% endif %}
+  </div>
+
+{% endblock %}

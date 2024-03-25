@@ -1,0 +1,205 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% load i18n admin_urls %}
+
+
+<title>{% block title %}{{ title }}{% endblock %}</title>
+{% block extrastyle %}
+    <link rel="stylesheet" href="{% static 'admin/css/admin.css' %}">
+    {{ block.super }}
+{% endblock %}
+
+{% block branding %}
+    <h1><a href="{% url 'admin:index' %}">{{ title_site }}{% translate 'Настройки' %}</a></h1>
+{% endblock %}
+
+
+{% block content %}
+    <div class="flex container">
+        <table>
+            <div class="setup-time-cache">
+                <h2 class="flex">{% translate 'Настройка времени кэширования' %}</h2>
+                <tr>
+                    <form class="flex setup" method="post" action="{% url 'store:site_name' %}">
+                        {% csrf_token %}
+                        <td>
+                            <label for="title_site">
+                                <li>{% translate 'Название магазина' %}:</li>
+                            </label>
+                        <td>
+                            <span class="span-default">{{ title_site }}</span>
+                        </td>
+                        <td>
+                            <input type="text" name="title_site" id="title_site" placeholder={% translate "Укажите новое название" %}>
+                        </td>
+                        <td>
+                            <input type="submit" value={% translate "Сменить" %}>
+                    </form>
+                </tr>
+                <hr>
+                <tr>
+                    <form class="flex setup" action="{% url 'store:cache_time_banner' %}" method="post">
+                        {% csrf_token %}
+                        <td>
+                            <label for="cache_time_banner">
+                                <li>{% translate 'Время кэширование Баннера' %}:</li>
+                            </label>
+                        <td>
+                            <span class="span-default">{{ cache_banner }}</span>
+                        </td>
+                        <td>
+                            <input type="text" name="cache_time_banner" id="cache_time_banner"
+                                   placeholder={% translate "Указывать в мин" %}>
+                        </td>
+                        <td>
+                            <input type="submit" value={% translate "Задать" %}>
+                        </td>
+                    </form>
+                </tr>
+                <tr>
+                    <form class="flex setup" action="{% url 'store:cache_time_cart' %}" method="post">
+                        <td>
+                            {% csrf_token %}
+                            <label for="cache_time_cart">
+                                <li>{% translate 'Время кэширование Корзины' %}:</li>
+                            </label>
+                        <td>
+                            <span class="span-default">{{ cache_cart }}</span>
+                        </td>
+                        <td>
+                            <input type="text" name="cache_time_cart" id="cache_time_cart"
+                                   placeholder={% translate "Указывать в мин" %}>
+                        </td>
+                        <td>
+                            <input type="submit" value={% translate "Задать" %}>
+                        </td>
+                    </form>
+                </tr>
+                <tr>
+                    <form class="flex setup" action="{% url 'store:cache_time_prod_detail' %}" method="post">
+                        <td>
+                            {% csrf_token %}
+                            <label for="cache_time_prod_detail">
+                                <li>{% translate 'Время кэширование деталей продукта' %}:</li>
+                            </label>
+                        <td>
+                            <span class="span-default">{{ cache_prod_detail }}</span>
+                        </td>
+                        <td>
+                            <input type="text" name="cache_time_prod_detail" id="cache_time_prod_detail"
+                                   placeholder={% translate "Указывать в мин" %}>
+                        </td>
+                        <td>
+                            <input type="submit" value={% translate "Задать" %}>
+                        </td>
+                    </form>
+                </tr>
+                <tr>
+                    <form class="flex setup" action="{% url 'store:cache_time_seller' %}" method="post">
+                        <td>
+                            {% csrf_token %}
+                            <label for="cache_time_seller">
+                                <li>{% translate 'Время кэширование деталей Продавца' %}:</li>
+                            </label>
+                        <td>
+                            <span class="span-default">{{ cache_seller }}</span>
+                        </td>
+                        <td>
+                            <input type="text" name="cache_time_seller" id="cache_time_seller"
+                                   placeholder={% translate "Указывать в мин" %}>
+                        </td>
+                        <td>
+                            <input type="submit" value={% translate "Задать" %}>
+                        </td>
+                    </form>
+                </tr>
+                <tr>
+                    <form class="flex setup" action="{% url 'store:cache_time_catalog' %}" method="post">
+                        <td>
+                            {% csrf_token %}
+                            <label for="cache_time_catalog">
+                                <li>{% translate 'Время кэширование Каталога' %}:</li>
+                            </label>
+                        <td>
+                            <span class="span-default">{{ cache_catalog }}</span>
+                        </td>
+                        <td>
+                            <input type="text" name="cache_time_catalog" id="cache_time_catalog"
+                                   placeholder={% translate "Указывать в мин" %}>
+                        </td>
+                        <td>
+                            <input type="submit" value={% translate "Задать" %}>
+                        </td>
+                    </form>
+                </tr>
+            </div>
+        </table>
+
+        <table>
+            <div class="setup-time-cache">
+                <h2 class="flex">{% translate 'Очистка кэша' %}</h2>
+                <tr>
+                    <td>
+                        <li>{% translate 'Очистить весь кэш' %}</li>
+                    <td class="flex td-clear-cache">
+                        <a class="clear-cache" href="{% url 'store:clear_all_cache' %}">
+                            <input type="submit" value={% translate "Очистить" %}>
+                        </a>
+                    </td>
+                </tr>
+                <hr>
+                <tr>
+                    <td>
+                        <li>{% translate 'Очистить кэш Баннера' %}</li>
+                    </td>
+                    <td class="flex td-clear-cache">
+                        <a class="clear-cache" href="{% url 'store:clear_banner_cache' %}">
+                            <input type="submit" value={% translate "Очистить" %}>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <li>{% translate 'Очистить кэш Корзины' %}</li>
+                    </td>
+                    <td class="flex td-clear-cache">
+                        <a class="clear-cache" href="{% url 'store:clear_cart_cache' %}">
+                            <input type="submit" value={% translate "Очистить" %}>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <li>{% translate 'Очистить кэш Детализации продукта' %}</li>
+                    </td>
+                    <td class="flex td-clear-cache">
+                        <a class="clear-cache" href="{% url 'store:clear_product_detail' %}">
+                            <input type="submit" value={% translate "Очистить" %}>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <li>{% translate 'Очистить кэш Продавца' %}</li>
+                    </td>
+                    <td class="flex td-clear-cache">
+                        <a class="clear-cache" href="{% url 'store:clear_seller' %}">
+                            <input type="submit" value={% translate "Очистить" %}>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <li>{% translate 'Очистить кэш Каталога продуктов' %}</li>
+                    </td>
+                    <td class="flex td-clear-cache">
+                        <a class="clear-cache" href="{% url 'store:clear_catalog' %}">
+                            <input type="submit" value={% translate "Очистить" %}>
+                        </a>
+                    </td>
+                </tr>
+            </div>
+        </table>
+    </div>
+    {{ block.super }}
+{% endblock %}

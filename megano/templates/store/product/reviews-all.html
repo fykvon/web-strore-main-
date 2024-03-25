@@ -1,0 +1,28 @@
+{% load i18n %}
+
+
+<div  class="Tabs-block" id="reviews_all">
+    <header class="Section-header">
+      <h3 class="Section-title">{% translate 'Отзывы' %}
+      </h3>
+    </header>
+    <div class="Comments">
+        {% for review in reviews_all %}
+          <div class="Comment">
+            <div class="Comment-column Comment-column_pict">
+              <div class="Comment-avatar"></div>
+            </div>
+            <div class="Comment-column">
+              <header class="Comment-header">
+                <div>
+                  <strong class="Comment-title">{{ review.author }}
+                  </strong><span class="Comment-date">{{ review.created_at }}</span>
+                </div>
+              </header>
+              <div class="Comment-content" >{{ review.comment_text }}</div>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+    {% include "store/product/form-reviews.html" %}
+</div>

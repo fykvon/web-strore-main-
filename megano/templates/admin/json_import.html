@@ -1,0 +1,25 @@
+{% extends "admin/base_site.html" %}
+{% load get_import_status_tags %}
+{% load i18n %}
+
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} |
+  {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block content %}
+  <div>
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="submit-row">
+        <input type="submit" value={% translate 'Загрузить JSON файл' %}>
+      </div>
+    </form>
+  </div>
+  <br>
+  <div>
+    <p>
+      {% translate 'Статус выполнения импорта' %}: {% get_import_status %}
+    </p>
+  </div>
+{% endblock %}

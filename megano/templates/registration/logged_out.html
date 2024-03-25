@@ -1,0 +1,9 @@
+{% extends "base/base.html" %}
+{% load i18n static %}
+
+
+{% block content %}
+  <p>{% translate 'Выход выполнен' %}!</p>
+
+  <a href="{% url 'profile:login'%}">{% translate 'Нажмите сюда, чтобы войти снова' %}</a>
+{% endblock %}

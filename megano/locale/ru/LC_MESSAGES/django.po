@@ -1,0 +1,1845 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-21 15:46+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 :  2);\n"
+
+#: authorization/admin.py:10
+msgid "Archive"
+msgstr "Архивировать"
+
+#: authorization/admin.py:15
+msgid "Unarchive"
+msgstr "Разархивировать"
+
+#: authorization/admin.py:22 authorization/admin.py:23
+#: authorization/models.py:136 authorization/models.py:137
+msgid "Настройки магазина"
+msgstr "Настройки магазина"
+
+#: authorization/admin.py:42 store/admin.py:97 store/admin.py:145
+#: store/admin.py:187
+msgid "Extra options"
+msgstr "Другие опции"
+
+#: authorization/admin.py:55 store/admin.py:114 store/admin.py:490
+#: store/admin.py:510 store/models.py:37 store/models.py:192
+msgid "Изображение"
+msgstr "Изображение"
+
+#: authorization/forms.py:11
+#, fuzzy
+#| msgid "Тут_можно изменить пароль"
+msgid "Тут можно изменить пароль"
+msgstr "Тут_можно_изменить_пароль"
+
+#: authorization/forms.py:12
+#: templates/authorization/profile_update_form.html:75
+msgid "Введите пароль повторно"
+msgstr "Введите_пароль_повторно"
+
+#: authorization/forms.py:66
+msgid "Email адрес должен быть уникальным"
+msgstr "Email адрес должен быть уникальным"
+
+#: authorization/forms.py:73 authorization/forms.py:196 store/forms.py:128
+msgid "Пароли не совпадают"
+msgstr "Пароли не совпадают"
+
+#: authorization/forms.py:75 authorization/forms.py:198 store/forms.py:130
+msgid "Пароль должен содержать не менее 6 символов"
+msgstr "Пароль должен содержать не менее 8 символов"
+
+#: authorization/forms.py:118
+msgid "Размер изображения слишком большой ( > 2.5mb )"
+msgstr "Размер изображения слишком большой ( > 2.5mb )"
+
+#: authorization/forms.py:121
+msgid "Не удалось прочитать загруженное изображение"
+msgstr "Не удалось прочитать загруженное изображение"
+
+#: authorization/forms.py:133 store/forms.py:78
+msgid "Телефон должен быть уникальным"
+msgstr "Телефон должен быть уникальным"
+
+#: authorization/forms.py:152
+msgid "Имя"
+msgstr "Логин"
+
+#: authorization/forms.py:168
+#: templates/authorization/profile_update_form.html:63
+msgid "Пароль"
+msgstr "Пароль"
+
+#: authorization/forms.py:176
+msgid "Повтор Пароля"
+msgstr "Введите пароль повторно"
+
+#: authorization/forms.py:183 store/forms.py:117
+msgid "Такой логин уже существует"
+msgstr "Такой логин уже существует"
+
+#: authorization/forms.py:190 store/forms.py:122
+msgid "Данный email уже существует."
+msgstr "Данный email уже существует"
+
+#: authorization/mixins.py:15 templates/base/header.html:167
+msgid "Личный кабинет"
+msgstr "Личный кабинет"
+
+#: authorization/mixins.py:16 authorization/models.py:91 store/models.py:387
+#: templates/base/footer.html:24
+msgid "Профиль"
+msgstr "Профиль"
+
+#: authorization/mixins.py:17 templates/authorization/profile_detail.html:43
+msgid "История заказов"
+msgstr "История заказов"
+
+#: authorization/mixins.py:18
+msgid "История просмотров"
+msgstr "История просмотров"
+
+#: authorization/models.py:53
+msgid "Пользователь"
+msgstr "Пользователь"
+
+#: authorization/models.py:54
+msgid "Слаг"
+msgstr "Слаг"
+
+#: authorization/models.py:55
+msgid "Teleфон"
+msgstr "Teлeфон"
+
+#: authorization/models.py:56 store/admin.py:325 store/models.py:92
+#: store/models.py:317 templates/store/product/product-detail.html:15
+msgid "Описание"
+msgstr "Описание"
+
+#: authorization/models.py:59
+msgid "Фотография профиля"
+msgstr "Фотография профиля"
+
+#: authorization/models.py:65 store/models.py:394
+msgid "Архивация"
+msgstr "Архивация"
+
+#: authorization/models.py:66
+msgid "Имя магазина"
+msgstr "Имя магазина"
+
+#: authorization/models.py:67 store/models.py:390
+#: templates/authorization/detailed_order_page.html:72
+#: templates/store/order/order_confirm.html:73
+msgid "Адрес"
+msgstr "Адрес"
+
+#: authorization/models.py:70
+msgid "Связанные заказы"
+msgstr "Связанные заказы"
+
+#: authorization/models.py:75
+msgid "Роль"
+msgstr "Роль"
+
+#: authorization/models.py:92
+msgid "Профили"
+msgstr "Профили"
+
+#: authorization/models.py:111 store/models.py:361
+msgid "Обычная доставка"
+msgstr "Способ доставки"
+
+#: authorization/models.py:112 store/models.py:362
+msgid "Экспресс-доставка"
+msgstr "Экспресс-доставка"
+
+#: authorization/models.py:114 store/models.py:364
+msgid "Выберите доставку"
+msgstr "Выберите доставку"
+
+#: authorization/models.py:121 store/models.py:371
+msgid "Онлайн картой"
+msgstr "Онлайн картой"
+
+#: authorization/models.py:122 store/models.py:372
+msgid "Онлайн со случайного счета"
+msgstr "Онлайн со случайного счета"
+
+#: authorization/models.py:124 store/models.py:374
+msgid "Выберите оплату"
+msgstr "Выберите оплату"
+
+#: authorization/models.py:127 store/models.py:385
+msgid "Способ доставки"
+msgstr "Способ доставки"
+
+#: authorization/models.py:128 store/models.py:386
+msgid "Способ оплаты"
+msgstr "Способ оплаты"
+
+#: authorization/views.py:88
+msgid "Страница пользователя"
+msgstr "Пользователь"
+
+#: authorization/views.py:123
+msgid "Редактирование страницы пользователя"
+msgstr "Редактирование страницы пользователя"
+
+#: authorization/views.py:154
+msgid "Профиль успешно сохранен "
+msgstr "Профиль успешно сохранен"
+
+#: authorization/views.py:163
+msgid "Некорректный ввод данных. Попробуйте еще раз."
+msgstr "Некорректный ввод данных. Попробуйте еще раз"
+
+#: authorization/views.py:241
+msgid "Указанный email уже зарегистрирован"
+msgstr "Данный email уже существует"
+
+#: cart/admin.py:39 store/admin.py:439 store/models.py:170 store/models.py:293
+msgid "Товары"
+msgstr "Товары"
+
+#: cart/admin.py:40
+msgid "Иконка"
+msgstr "Иконка"
+
+#: cart/models.py:16 cart/models.py:18 store/admin.py:244 store/models.py:413
+#: templates/authorization/detailed_order_page.html:11
+#: templates/authorization/history_orders.html:15
+#: templates/authorization/profile_detail.html:37
+#: templates/store/order/order_confirm.html:13
+#: templates/store/order/payment.html:29
+msgid "Заказ"
+msgstr "Заказ"
+
+#: cart/models.py:19 store/admin.py:120
+msgid "Продукты"
+msgstr "Продукты"
+
+#: cart/models.py:20 store/models.py:204
+msgid "Количество"
+msgstr "Количество"
+
+#: cart/models.py:21
+msgid "Дата создания"
+msgstr "Дата создания"
+
+#: cart/models.py:22
+msgid "Дата изменения"
+msgstr "Дата изменения"
+
+#: cart/models.py:42
+msgid "корзину"
+msgstr "корзину"
+
+#: cart/models.py:43
+msgid "корзины"
+msgstr "корзины"
+
+#: compare/models.py:12
+msgid "Сделан в "
+msgstr "Сделан в "
+
+#: compare/models.py:13
+msgid "В каком году произведен"
+msgstr "В каком году произведен"
+
+#: compare/models.py:14 compare/services.py:292
+msgid "Цвет"
+msgstr "Цвет"
+
+#: compare/models.py:15 compare/services.py:293
+msgid "Вес"
+msgstr "Вес"
+
+#: compare/models.py:23 compare/models.py:24
+msgid "Абстрактные характеристики"
+msgstr "Абстрактные характеристики"
+
+#: compare/models.py:32
+msgid "TVSet"
+msgstr "TVSet"
+
+#: compare/models.py:33 compare/services.py:197
+msgid "Размер экрана"
+msgstr "Размер экрана"
+
+#: compare/models.py:34 compare/models.py:91 compare/models.py:172
+#: compare/services.py:183 compare/services.py:198 compare/services.py:231
+msgid "Разрешение экрана"
+msgstr "Разрешение экрана"
+
+#: compare/models.py:35 compare/services.py:199
+msgid "Страна производитель"
+msgstr "Страна производитель"
+
+#: compare/models.py:36 compare/services.py:200
+msgid "Частота обновления"
+msgstr "Частота обновления"
+
+#: compare/models.py:37
+msgid "Наличие Wi-Fi"
+msgstr "Наличие Wi-Fi"
+
+#: compare/models.py:37 compare/models.py:38 compare/models.py:52
+#: compare/models.py:53 compare/models.py:55 compare/models.py:57
+#: store/filters.py:20
+msgid "Нет"
+msgstr "Нет"
+
+#: compare/models.py:39 compare/models.py:58 compare/models.py:76
+#: compare/models.py:142 compare/models.py:190 compare/services.py:170
+#: compare/services.py:203 compare/services.py:258 compare/services.py:267
+msgid "Дополнительное описание"
+msgstr "Дополнительное описание"
+
+#: compare/models.py:43
+msgid "Характеристики телевизора"
+msgstr "Характеристики телевизора"
+
+#: compare/models.py:44
+msgid "Характеристики телевизоров"
+msgstr "Характеристики телевизоров"
+
+#: compare/models.py:52 compare/services.py:149
+msgid "Беспроводные"
+msgstr "Беспроводные"
+
+#: compare/models.py:53
+msgid "Микрофон"
+msgstr "Микрофон"
+
+#: compare/models.py:54
+msgid "Как носить"
+msgstr "Как носить"
+
+#: compare/models.py:55
+msgid "Наличие Bluetooth"
+msgstr "Наличие Bluetooth"
+
+#: compare/models.py:56
+msgid "Сопротивление (Ом)"
+msgstr "Сопротивление (Ом)"
+
+#: compare/models.py:62 compare/models.py:63
+msgid "Характеристики наушников"
+msgstr "Характеристики наушников"
+
+#: compare/models.py:71 compare/models.py:126 compare/models.py:157
+#: compare/services.py:165 compare/services.py:279
+msgid "Высота"
+msgstr "Высота"
+
+#: compare/models.py:72 compare/models.py:127
+msgid "Ширина"
+msgstr "Ширина"
+
+#: compare/models.py:73 compare/models.py:128 compare/services.py:167
+msgid "Глубина"
+msgstr "Глубина"
+
+#: compare/models.py:74 compare/services.py:168
+msgid "Тип загрузки"
+msgstr "Тип загрузки"
+
+#: compare/models.py:74 compare/models.py:93 compare/models.py:106
+#: compare/models.py:125 compare/models.py:170 compare/models.py:174
+#: compare/models.py:188
+msgid "Информации нет"
+msgstr "Нет информации"
+
+#: compare/models.py:75 compare/models.py:123 compare/services.py:169
+#: compare/services.py:241
+msgid "Объём загрузки"
+msgstr "Объём загрузки"
+
+#: compare/models.py:80
+msgid "Характеристики стиральной машины"
+msgstr "Характеристики стиральной машины"
+
+#: compare/models.py:81
+msgid "Характеристики стиральных машин"
+msgstr "Характеристики стиральных машин"
+
+#: compare/models.py:89 compare/services.py:181
+msgid "Тип мобильного телефона"
+msgstr "Тип мобильного телефона"
+
+#: compare/models.py:90 compare/models.py:171 compare/services.py:182
+#: compare/services.py:230
+msgid "Размер экрана в дюймах"
+msgstr "Размер экрана в дюймах"
+
+#: compare/models.py:92 compare/services.py:184
+msgid "Технология экрана"
+msgstr "Технология экрана"
+
+#: compare/models.py:93 compare/models.py:174 compare/services.py:185
+#: compare/services.py:233
+msgid "Операционная система"
+msgstr "Операционная система"
+
+#: compare/models.py:97
+msgid "Характеристики телефона"
+msgstr "Характеристики телефона"
+
+#: compare/models.py:98
+msgid "Характеристики телефонов"
+msgstr "Характеристики телефонов"
+
+#: compare/models.py:106 compare/services.py:214
+msgid "Тип фотоаппарата"
+msgstr "Тип фотоаппарата"
+
+#: compare/models.py:107 compare/services.py:215
+msgid "Количество мегапикселей"
+msgstr "Количество мегапикселей"
+
+#: compare/models.py:108 compare/services.py:216
+msgid "ISO максимальная"
+msgstr "ISO максимальная"
+
+#: compare/models.py:109 compare/services.py:217
+msgid "ISO минимальная"
+msgstr "ISO минимальная"
+
+#: compare/models.py:110 compare/services.py:218
+msgid "Видео разрешение"
+msgstr "Видео разрешение"
+
+#: compare/models.py:114
+msgid "Характеристики фотоаппарата"
+msgstr "Характеристики фотоаппарата"
+
+#: compare/models.py:115
+msgid "Характеристики фотоаппаратов"
+msgstr "Характеристики фотоаппаратов"
+
+#: compare/models.py:124 compare/services.py:242
+msgid "Мощность Вт"
+msgstr "Мощность Вт"
+
+#: compare/models.py:132
+msgid "Характеристики микроволновой печи"
+msgstr "Характеристики микроволновой печи"
+
+#: compare/models.py:133
+msgid "Характеристики микроволновых печей"
+msgstr "Характеристики микроволновой печей"
+
+#: compare/models.py:141 compare/services.py:257
+msgid "Тип техники"
+msgstr "Тип техники"
+
+#: compare/models.py:146 compare/models.py:147
+msgid "Характеристики кухонной техники"
+msgstr "Характеристики кухонной техники"
+
+#: compare/models.py:155 compare/services.py:278
+msgid "Тип лампочки"
+msgstr "Тип лампочки"
+
+#: compare/models.py:156 compare/services.py:280
+msgid "Место расположения"
+msgstr "Место расположения"
+
+#: compare/models.py:161
+msgid "Характеристики торшера"
+msgstr "Характеристики торшера"
+
+#: compare/models.py:162
+msgid "Характеристики торшеров"
+msgstr "Характеристики торшеров"
+
+#: compare/models.py:170 compare/services.py:229
+msgid "Тип ноутбука"
+msgstr "Тип ноутбука"
+
+#: compare/models.py:173 compare/services.py:232
+msgid "Плотность пикселей"
+msgstr "Плотность пикселей"
+
+#: compare/models.py:175 compare/services.py:234
+msgid "Версия операционной системы"
+msgstr "Версия операционной системы"
+
+#: compare/models.py:179
+msgid "Характеристики ноутбука"
+msgstr "Характеристики ноутбука"
+
+#: compare/models.py:180
+msgid "Характеристики ноутбуков"
+msgstr "Характеристики ноутбуков"
+
+#: compare/models.py:188 compare/services.py:265
+msgid "Тип электроники"
+msgstr "Тип электроники"
+
+#: compare/models.py:189 compare/services.py:266
+msgid "Тип питания"
+msgstr "Тип питания"
+
+#: compare/models.py:194 compare/models.py:195
+msgid "Характеристики электроники"
+msgstr "Характеристики электроники"
+
+#: compare/services.py:150
+msgid "Наличие микрофона"
+msgstr "Наличие микрофона"
+
+#: compare/services.py:151
+msgid "Ношение"
+msgstr "Ношение"
+
+#: compare/services.py:152
+msgid "Наличие bluetooth"
+msgstr "Наличие Bluetooth"
+
+#: compare/services.py:153
+msgid "Сомпротивление, Ом"
+msgstr "Сопротивление (Ом)"
+
+#: compare/services.py:154
+msgid "Наличие HDMI"
+msgstr "Наличие HDMI"
+
+#: compare/services.py:196 store/filters.py:15 store/filters.py:25
+#: store/models.py:31 store/models.py:249 store/models.py:314
+msgid "Название"
+msgstr "Название"
+
+#: compare/services.py:201
+msgid "Наличие Wi - Fi"
+msgstr "Наличие Wi-Fi"
+
+#: compare/services.py:202
+msgid "HDMI"
+msgstr "HDMI"
+
+#: compare/services.py:243
+msgid "Гриль"
+msgstr "Гриль"
+
+#: compare/services.py:244
+msgid "Высота, мм"
+msgstr "Высота, мм"
+
+#: compare/services.py:245
+msgid "Ширина, мм"
+msgstr "Ширина, мм"
+
+#: compare/services.py:246
+msgid "Глубина, мм"
+msgstr "Глубина, мм"
+
+#: compare/services.py:290
+msgid "Страна производства"
+msgstr "Страна производства"
+
+#: compare/services.py:291
+msgid "Год производства"
+msgstr "Год производства"
+
+#: compare/views.py:82
+msgid ""
+"Нельзя сравнивать несравнимое. Выберите товары из одной категории. Добавь "
+"товары снова"
+msgstr ""
+"Нельзя сравнивать несравнимое. Выберите товары из одной категории. Добавь "
+"товары снова"
+
+#: compare/views.py:102
+msgid "Тут пока ничего нет. Добавь товары к сравнению"
+msgstr "Тут пока ничего нет. Добавь товары к сравнению"
+
+#: megano/settings.py:158
+msgid "English"
+msgstr "Английский"
+
+#: megano/settings.py:159
+msgid "Russian"
+msgstr "Русский"
+
+#: services/check_count_product.py:11
+msgid "Товара  доступно"
+msgstr "Товара  доступно"
+
+#: services/check_count_product.py:12
+msgid "Больше"
+msgstr "Больше"
+
+#: services/check_count_product.py:13
+msgid "нет на складе"
+msgstr "нет на складе"
+
+#: services/check_count_product.py:29 services/check_count_product.py:34
+#: services/check_count_product.py:46 services/services.py:867
+#: templates/compare/compare_error.html:6 templates/compare/compare_none.html:6
+msgid "Ошибка"
+msgstr "Ошибка"
+
+#: services/check_count_product.py:29
+msgid "Товар отсутствует на складе"
+msgstr "Товар отсутствует на складе"
+
+#: services/check_count_product.py:33 services/check_count_product.py:45
+#, python-brace-format
+msgid "{self.offer.amount} шт."
+msgid_plural "{self.offer.amount}шт."
+msgstr[0] ""
+msgstr[1] ""
+
+#: services/services.py:96
+msgid "Пароль и email не совпадают, проверьте ввод или зарегистрируйтесь"
+msgstr "Пароль и email не совпадают, проверьте ввод или зарегистрируйтесь"
+
+#: services/services.py:99
+msgid "Пользователь с таким email не найден"
+msgstr "Пользователь с таким email не найден"
+
+#: services/services.py:322
+msgid "Банк недоступен"
+msgstr "Банк недоступен"
+
+#: services/services.py:323
+msgid "На счете недостаточно средств"
+msgstr "На счете недостаточно средств"
+
+#: services/services.py:324
+msgid "Введенный счет недействителен"
+msgstr "Введенный счет недействителен"
+
+#: services/services.py:325 templates/store/order/order_confirm.html:95
+msgid "Оплата не выполнена"
+msgstr "Оплата не выполнена"
+
+#: services/services.py:341 store/models.py:381
+msgid "Оплачено"
+msgstr "Оплачено"
+
+#: services/services.py:864
+msgid "Импорт файла"
+msgstr ""
+
+#: services/services.py:865 store/admin.py:328 store/admin.py:453
+#: store/models.py:71 store/models.py:89
+msgid "Категория"
+msgstr "Категория"
+
+#: services/services.py:866
+msgid "не найдена в базе данных"
+msgstr "не найдена в базе данных"
+
+#: services/services.py:868 store/admin.py:433 store/admin.py:438
+#: store/models.py:169 store/models.py:214
+msgid "Товар"
+msgstr "Товар"
+
+#: services/services.py:869
+msgid "уже существует"
+msgstr "уже существует"
+
+#: services/services.py:870
+msgid "Нет совпадений по ключам в переданных данных"
+msgstr "Нет совпадений по ключам в переданных данных"
+
+#: services/services.py:871
+msgid "Внимание"
+msgstr "Внимание"
+
+#: services/services.py:872
+msgid "Данные"
+msgstr "Данные"
+
+#: services/services.py:873
+msgid "не импортированы, либо импортированы не полностью"
+msgstr "не импортированы, либо импортированы не полностью"
+
+#: services/services.py:874
+msgid "Результат импорта"
+msgstr "Результат импорта"
+
+#: services/services.py:875
+msgid "импортирован успешно"
+msgstr "импортирован успешно"
+
+#: services/services.py:876
+msgid "Не удалось переместить файл"
+msgstr "Не удалось переместить файл"
+
+#: services/services.py:877
+msgid "в другую директорию"
+msgstr "в другую директорию"
+
+#: services/services.py:878
+msgid "Конец импорта файла"
+msgstr "Конец импорта файла"
+
+#: services/services.py:879
+msgid "Неправильно указан адрес для загрузки главного изображения продукта"
+msgstr "Неправильно указан адрес для загрузки главного изображения продукта"
+
+#: services/services.py:880
+msgid "Не удалось загрузить главное изображение для"
+msgstr "Не удалось загрузить главное изображение для"
+
+#: services/services.py:881
+msgid "Не удалось импортировать характеристики для"
+msgstr "Не удалось импортировать характеристики для"
+
+#: services/services.py:882
+msgid "Неправильно указан адрес для загрузки изображений продукта"
+msgstr "Неправильно указан адрес для загрузки изображений продукта"
+
+#: services/services.py:883
+msgid "Не удалось загрузить изображения для"
+msgstr "Не удалось загрузить изображения для"
+
+#: services/services.py:884
+msgid "не найден в базе данных"
+msgstr "не найден в базе данных"
+
+#: services/services.py:885
+msgid "Не удалось импортировать предложение от"
+msgstr "Не удалось импортировать предложение от"
+
+#: services/services.py:886
+msgid "для"
+msgstr "для"
+
+#: store/admin.py:47
+msgid "Архивировать"
+msgstr "Архивировать"
+
+#: store/admin.py:52
+msgid "Разархивировать"
+msgstr "Разархивировать"
+
+#: store/admin.py:57
+msgid "Доступен"
+msgstr "Доступен"
+
+#: store/admin.py:62
+msgid "Не доступен"
+msgstr "Не доступен"
+
+#: store/admin.py:67
+msgid "Сбросить кэш списка товаров"
+msgstr "Сбросить кэш списка товаров"
+
+#: store/admin.py:70
+msgid "кэш списка товаров сброшен."
+msgstr "кэш списка товаров сброшен"
+
+#: store/admin.py:119 store/models.py:268
+msgid "Продукт"
+msgstr "Продукт"
+
+#: store/admin.py:168
+msgid "Покупатель"
+msgstr "Покупатель"
+
+#: store/admin.py:207 store/models.py:257
+msgid "Тег"
+msgstr "Тег"
+
+#: store/admin.py:208 store/models.py:99 store/models.py:258
+msgid "Теги"
+msgstr "Теги"
+
+#: store/admin.py:237 store/models.py:38 store/models.py:111
+#: store/models.py:341
+msgid "Скидка"
+msgstr "Скидка"
+
+#: store/admin.py:238 store/models.py:342 templates/base/header.html:143
+msgid "Скидки"
+msgstr "Скидки"
+
+#: store/admin.py:245 store/models.py:414
+msgid "Заказы"
+msgstr "Заказы"
+
+#: store/admin.py:291
+msgid "Главное фото"
+msgstr "Главное фото"
+
+#: store/admin.py:294
+msgid "Другие опции"
+msgstr "Другие опции"
+
+#: store/admin.py:326 store/models.py:109 store/models.py:272
+#: store/models.py:292 store/models.py:388
+msgid "Создан"
+msgstr "Создан"
+
+#: store/admin.py:327 store/models.py:110 store/models.py:273
+msgid "Отредактирован"
+msgstr "Отредактирован"
+
+#: store/admin.py:341
+msgid "Передан неправильный формат. Загрузить можно только файлы json."
+msgstr "Передан неправильный формат. Загрузить можно только файлы json."
+
+#: store/admin.py:363
+msgid ""
+"Ошибка: предыдущий импорт ещё не выполнен. Пожалуйста, дождитесь его "
+"окончания."
+msgstr ""
+"Ошибка: предыдущий импорт ещё не выполнен. Пожалуйста, дождитесь его "
+"окончания."
+
+#: store/admin.py:385
+msgid "Загрузка файлов началась. Результат будет отправлен на указанную почту."
+msgstr ""
+"Загрузка файлов началась. Результат будет отправлен на указанную почту."
+
+#: store/admin.py:454 store/models.py:72 store/models.py:422
+msgid "Категории"
+msgstr "Категории"
+
+#: store/configs.py:34
+msgid " мин."
+msgstr " мин."
+
+#: store/configs.py:35
+msgid "ч."
+msgstr " ч."
+
+#: store/configs.py:36
+msgid "д."
+msgstr " д."
+
+#: store/filters.py:16 store/filters.py:66
+#: templates/compare/compare_products.html:29
+#: templates/store/product/description.html:23
+#: templates/store/product/product-detail.html:21
+msgid "Характеристика"
+msgstr "Характеристика"
+
+#: store/filters.py:19
+msgid "Да"
+msgstr "Да"
+
+#: store/filters.py:21
+msgid "Не учитывать"
+msgstr "Не учитывать"
+
+#: store/filters.py:35 store/models.py:203
+#: templates/store/catalog/filter.html:15
+#: templates/store/catalog/sorting.html:25
+#: templates/store/catalog/sorting.html:28
+#: templates/store/catalog/sorting.html:31
+msgid "Цена"
+msgstr "Цена"
+
+#: store/filters.py:48 templates/store/product/product-detail.html:18
+msgid "Продавцы"
+msgstr "Продавец"
+
+#: store/filters.py:54
+msgid "Только товары в наличии"
+msgstr "Только товары в наличии"
+
+#: store/filters.py:60
+msgid "С бесплатной доставкой"
+msgstr "С бесплатной доставкой"
+
+#: store/forms.py:20
+msgid "Иванов Иван Иванович"
+msgstr "Иванов Иван Иванович"
+
+#: store/forms.py:64
+msgid "Город проживания"
+msgstr "Город проживания"
+
+#: store/forms.py:65
+msgid "Адрес доставки"
+msgstr "Адрес доставки"
+
+#: store/forms.py:66
+msgid "Почта"
+msgstr "Почта"
+
+#: store/forms.py:112
+msgid "Такой телефон уже существует"
+msgstr "Такой телефон уже существует"
+
+#: store/forms.py:172
+msgid "json_file"
+msgstr "Json файл"
+
+#: store/forms.py:173
+msgid "email"
+msgstr "E-mail"
+
+#: store/management/commands/upload_file.py:25
+msgid "Указывает имя файла"
+msgstr "Указывает имя файла"
+
+#: store/management/commands/upload_file.py:30
+msgid "Указывает адресата для отправки сообщений на почту"
+msgstr "Указывает адресата для отправки сообщений на почту"
+
+#: store/models.py:34
+msgid "Родительская категория"
+msgstr "Родительская категория"
+
+#: store/models.py:39 store/models.py:267 store/models.py:315
+msgid "URL"
+msgstr "Слаг"
+
+#: store/models.py:40
+msgid "Активация"
+msgstr "Активация"
+
+#: store/models.py:41
+msgid "Индекс сортировки"
+msgstr "Индекс сортировки"
+
+#: store/models.py:83
+msgid "Название товара"
+msgstr "Название товара"
+
+#: store/models.py:101
+msgid "Основное фото"
+msgstr "Основное фото"
+
+#: store/models.py:108
+msgid "Доступность"
+msgstr "Доступность"
+
+#: store/models.py:112 templates/store/index.html:207
+msgid "Ограниченный тираж"
+msgstr "Ограниченный тираж"
+
+#: store/models.py:180
+msgid "Фотография товара"
+msgstr "Фотография товара"
+
+#: store/models.py:193
+msgid "Изображения"
+msgstr "Изображения"
+
+#: store/models.py:201
+msgid "Предложение от"
+msgstr "Предложение от"
+
+#: store/models.py:208
+msgid "Продавец"
+msgstr "Продавец"
+
+#: store/models.py:240
+msgid "Предложение"
+msgstr "Предложение"
+
+#: store/models.py:241
+msgid "Предложения"
+msgstr "Предложения"
+
+#: store/models.py:266
+msgid "Название баннера"
+msgstr "Название баннера"
+
+#: store/models.py:269
+msgid "Описание баннера"
+msgstr "Описание баннера"
+
+#: store/models.py:270
+msgid "Ссылка"
+msgstr "Ссылка"
+
+#: store/models.py:271
+msgid "Модерация"
+msgstr "Архивация"
+
+#: store/models.py:281
+msgid "баннер"
+msgstr "баннер"
+
+#: store/models.py:282
+msgid "баннеры"
+msgstr "баннеры"
+
+#: store/models.py:290
+msgid " Отзыв"
+msgstr "Отзыв"
+
+#: store/models.py:291
+msgid "Автор"
+msgstr "Автор"
+
+#: store/models.py:300 templates/store/product/form-reviews.html:16
+msgid "Отзыв"
+msgstr "Отзыв"
+
+#: store/models.py:301 templates/store/product/product-detail.html:24
+#: templates/store/product/product-reviews.html:6
+#: templates/store/product/reviews-all.html:6
+msgid "Отзывы"
+msgstr "Отзывы"
+
+#: store/models.py:310
+msgid "Скидки на товар"
+msgstr "Скидки на товар"
+
+#: store/models.py:311
+msgid "Скидки на наборы"
+msgstr "Скидки на наборы"
+
+#: store/models.py:312
+msgid "Скидки на корзину"
+msgstr "Скидки на корзину"
+
+#: store/models.py:316
+msgid "Тип скидки"
+msgstr "Тип скидки"
+
+#: store/models.py:320
+msgid "Изображение скидки"
+msgstr "Изображение скидки"
+
+#: store/models.py:326
+msgid "Сумма скидки"
+msgstr "Сумма скидки"
+
+#: store/models.py:327
+msgid "Количество товаров"
+msgstr "Количество товаро"
+
+#: store/models.py:328
+msgid "Сумма корзины"
+msgstr "Сумма корзины"
+
+#: store/models.py:329
+msgid "Приоритет"
+msgstr "Приоритет"
+
+#: store/models.py:330
+msgid "Действует с"
+msgstr "Действует с"
+
+#: store/models.py:331
+msgid "Действует до"
+msgstr "Действует до"
+
+#: store/models.py:332
+msgid "Активно"
+msgstr "Активно"
+
+#: store/models.py:333
+msgid "Создана"
+msgstr "Дата создания"
+
+#: store/models.py:354
+msgid "Order"
+msgstr "Заказ"
+
+#: store/models.py:382
+msgid "Не оплачено"
+msgstr "Не оплачено"
+
+#: store/models.py:383
+msgid "Доставляется"
+msgstr "Доставляется"
+
+#: store/models.py:389
+msgid "Статус заказа"
+msgstr "Статус заказа"
+
+#: store/models.py:391
+msgid "Стоимость заказа"
+msgstr "Стоимость заказа"
+
+#: store/models.py:393
+msgid "Статус ошибки"
+msgstr "Статус ошибки"
+
+#: store/models.py:424
+msgid "Фото категории"
+msgstr "Фото категории"
+
+#: store/models.py:431
+msgid "Активный"
+msgstr "Активный"
+
+#: store/models.py:438
+msgid "Банер категории"
+msgstr "Банер категории"
+
+#: store/models.py:439
+msgid "Банеры категорий"
+msgstr "Банеры категорий"
+
+#: store/templatetags/banners_tags.py:23
+msgid "Not Banners"
+msgstr "Нет Баннера"
+
+#: store/templatetags/get_import_status_tags.py:21
+msgid "Выполнен успешно"
+msgstr "Выполнен успешно"
+
+#: store/templatetags/get_import_status_tags.py:23
+msgid "Завершен с ошибкой"
+msgstr "Завершен с ошибкой"
+
+#: store/templatetags/get_import_status_tags.py:25
+msgid "В процессе выполнения"
+msgstr "В процессе выполнения"
+
+#: store/templatetags/get_import_status_tags.py:27
+msgid "Не было ни одного импорта"
+msgstr "Не было ни одного импорта"
+
+#: store/views.py:154
+msgid "кэш полностью очищен."
+msgstr "Кэш полностью очищен"
+
+#: store/views.py:175
+msgid "кэш баннера очищен."
+msgstr "Кэш баннера очищен"
+
+#: store/views.py:196
+msgid "кэш корзины очищен."
+msgstr "Кэш корзины очищен"
+
+#: store/views.py:217
+msgid "кэш продукта очищен."
+msgstr "Кэш продукта очищен"
+
+#: store/views.py:237
+msgid "кэш продавца очищен."
+msgstr "Кэш продавца очищен"
+
+#: store/views.py:258
+msgid "кэш каталога очищен."
+msgstr "Кэш каталога очищен"
+
+#: store/views.py:280
+msgid "Название магазина успешно изменено"
+msgstr "Название магазина успешно изменено"
+
+#: store/views.py:282
+msgid "Поле не должно быть пустым"
+msgstr "Поле не должно быть пустым"
+
+#: store/views.py:299
+msgid "Время кэширование Баннера установлено"
+msgstr "Время кэширование Баннера установлено"
+
+#: store/views.py:301 store/views.py:320 store/views.py:339 store/views.py:358
+#: store/views.py:377
+msgid "Поле не должно быть пустым или содержать только цифры"
+msgstr "Поле не должно быть пустым или содержать только цифры"
+
+#: store/views.py:318
+msgid "Время кэширование Корзины установлено"
+msgstr "Время кэширование Корзины установлено"
+
+#: store/views.py:337
+msgid "Время кэширование детализации продукта установлено"
+msgstr "Время кэширование детализации продукта установлено"
+
+#: store/views.py:356 store/views.py:375
+msgid "Время кэширование детализации продавца установлено"
+msgstr "Время кэширование детализации продавца установлено"
+
+#: store/views.py:621
+msgid "Заказ с номером"
+msgstr "Заказ с номером"
+
+#: store/views.py:622
+msgid "не найден"
+msgstr "не найден"
+
+#: templates/admin/base.html:7
+msgid "Сегодня:"
+msgstr "Сегодня:"
+
+#: templates/admin/base.html:10 templates/admin/settings.html:13
+msgid "Настройки"
+msgstr "Настройки"
+
+#: templates/admin/base.html:13
+msgid "Привет,"
+msgstr "Привет,"
+
+#: templates/admin/base.html:18
+msgid "View site"
+msgstr "Просмотреть сайт"
+
+#: templates/admin/base.html:23
+msgid "Documentation"
+msgstr "Документация"
+
+#: templates/admin/base.html:27
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: templates/admin/base.html:31
+msgid "Log out"
+msgstr "Выйти"
+
+#: templates/admin/base_site.html:3 templates/admin/json_import.html:7
+msgid "Django site admin"
+msgstr "Администратор сайта Джанго"
+
+#: templates/admin/base_site.html:7
+msgid "Django"
+msgstr "Джанго"
+
+#: templates/admin/json_import.html:15
+msgid "Загрузить JSON файл"
+msgstr "Загрузить JSON файл"
+
+#: templates/admin/json_import.html:22
+msgid "Статус выполнения импорта"
+msgstr "Статус выполнения импорта"
+
+#: templates/admin/settings.html:21
+msgid "Настройка времени кэширования"
+msgstr "Настройка времени кэширования"
+
+#: templates/admin/settings.html:27
+msgid "Название магазина"
+msgstr "Название магазина"
+
+#: templates/admin/settings.html:33
+msgid "Укажите новое название"
+msgstr "Укажите новое название"
+
+#: templates/admin/settings.html:36
+msgid "Сменить"
+msgstr "Сменить"
+
+#: templates/admin/settings.html:45
+msgid "Время кэширование Баннера"
+msgstr "Время кэширование Баннера"
+
+#: templates/admin/settings.html:52 templates/admin/settings.html:71
+#: templates/admin/settings.html:90 templates/admin/settings.html:109
+#: templates/admin/settings.html:128
+msgid "Указывать в мин"
+msgstr "Указывать в мин"
+
+#: templates/admin/settings.html:55 templates/admin/settings.html:74
+#: templates/admin/settings.html:93 templates/admin/settings.html:112
+#: templates/admin/settings.html:131
+msgid "Задать"
+msgstr "Задать"
+
+#: templates/admin/settings.html:64
+msgid "Время кэширование Корзины"
+msgstr "Время кэширование Корзины"
+
+#: templates/admin/settings.html:83
+msgid "Время кэширование деталей продукта"
+msgstr "Время кэширование деталей продукта"
+
+#: templates/admin/settings.html:102
+msgid "Время кэширование деталей Продавца"
+msgstr "Время кэширование деталей Продавца"
+
+#: templates/admin/settings.html:121
+msgid "Время кэширование Каталога"
+msgstr "Время кэширование Каталога"
+
+#: templates/admin/settings.html:140
+msgid "Очистка кэша"
+msgstr "Очистка кэша"
+
+#: templates/admin/settings.html:143
+msgid "Очистить весь кэш"
+msgstr "Очистить весь кэш"
+
+#: templates/admin/settings.html:146 templates/admin/settings.html:157
+#: templates/admin/settings.html:167 templates/admin/settings.html:177
+#: templates/admin/settings.html:187 templates/admin/settings.html:197
+msgid "Очистить"
+msgstr "Очистить"
+
+#: templates/admin/settings.html:153
+msgid "Очистить кэш Баннера"
+msgstr "Очистить кэш Баннера"
+
+#: templates/admin/settings.html:163
+msgid "Очистить кэш Корзины"
+msgstr "Очистить кэш Корзины"
+
+#: templates/admin/settings.html:173
+msgid "Очистить кэш Детализации продукта"
+msgstr "Очистить кэш Детализации продукта"
+
+#: templates/admin/settings.html:183
+msgid "Очистить кэш Продавца"
+msgstr "Очистить кэш Продавца"
+
+#: templates/admin/settings.html:193
+msgid "Очистить кэш Каталога продуктов"
+msgstr "Очистить кэш Каталога продуктов"
+
+#: templates/authorization/about-seller.html:12
+msgid "About "
+msgstr "О "
+
+#: templates/authorization/about-seller.html:15
+msgid "home"
+msgstr "домой"
+
+#: templates/authorization/about-seller.html:17
+msgid "About Us"
+msgstr "О нас"
+
+#: templates/authorization/about-seller.html:32
+msgid "Shipping & Returns"
+msgstr "Доставка и возврат"
+
+#: templates/authorization/about-seller.html:33
+msgid "World wide shipping"
+msgstr "Доставка по всему миру"
+
+#: templates/authorization/about-seller.html:43
+msgid "Money Back"
+msgstr "Возврат денег"
+
+#: templates/authorization/about-seller.html:45
+msgid "Guaranted payments"
+msgstr "Гарантированные выплаты"
+
+#: templates/authorization/about-seller.html:56
+msgid "Support Policy"
+msgstr "Политика поддержки"
+
+#: templates/authorization/about-seller.html:57
+msgid "Fast support team"
+msgstr "Быстрая команда поддержки"
+
+#: templates/authorization/about-seller.html:67
+msgid "Quality Guarantee"
+msgstr "Гарантия качества"
+
+#: templates/authorization/about-seller.html:68
+msgid "Best guaranted items"
+msgstr "Товары с лучшей гарантией"
+
+#: templates/authorization/about-seller.html:78 templates/base/footer.html:32
+msgid "Phone"
+msgstr "Телефон"
+
+#: templates/authorization/about-seller.html:109
+msgid "Follow Us"
+msgstr "Подписывайтесь на нас"
+
+#: templates/authorization/about-seller.html:135
+msgid "Why Choose"
+msgstr "Почему выбирают"
+
+#: templates/authorization/about-seller.html:140
+msgid "Продавец пока не оставил описания"
+msgstr "Продавец пока не оставил описания"
+
+#: templates/authorization/about-seller.html:142
+msgid "Get Started"
+msgstr "Начать"
+
+#: templates/authorization/about-seller.html:155
+msgid "Popular Products"
+msgstr "Популярные продукты"
+
+#: templates/authorization/account.html:14 templates/base/footer.html:14
+msgid "Навигация"
+msgstr "Навигация"
+
+#: templates/authorization/account.html:34
+msgid "Пожалуйста, авторизуйтесь"
+msgstr "Пожалуйста, авторизуйтесь"
+
+#: templates/authorization/detailed_order_page.html:27
+#: templates/store/order/order_confirm.html:29
+msgid "Дата заказа"
+msgstr "Дата заказа"
+
+#: templates/authorization/detailed_order_page.html:33
+#: templates/authorization/profile_update_form.html:36
+#: templates/store/order/order_confirm.html:37
+msgid "ФИО"
+msgstr "ФИО"
+
+#: templates/authorization/detailed_order_page.html:44
+#: templates/authorization/profile_update_form.html:47
+#: templates/store/order/order_confirm.html:45
+msgid "Телефон"
+msgstr "Телефон"
+
+#: templates/authorization/detailed_order_page.html:50
+msgid "E-mail"
+msgstr "E-mail"
+
+#: templates/authorization/detailed_order_page.html:58
+#: templates/authorization/history_orders.html:22
+#: templates/authorization/profile_detail.html:50
+#: templates/store/order/order_confirm.html:60
+#: templates/store/product/sellers.html:31
+msgid "Тип доставки"
+msgstr "Тип доставки"
+
+#: templates/authorization/detailed_order_page.html:66
+#: templates/store/order/order_confirm.html:67
+msgid "Город"
+msgstr "Город"
+
+#: templates/authorization/detailed_order_page.html:79
+#: templates/authorization/history_orders.html:28
+#: templates/authorization/profile_detail.html:56
+#: templates/store/order/order_confirm.html:80
+#: templates/store/order/payment.html:10 templates/store/order/payment.html:15
+#: templates/store/product/sellers.html:38
+msgid "Оплата"
+msgstr "Оплата"
+
+#: templates/authorization/detailed_order_page.html:85
+#: templates/authorization/history_orders.html:40
+#: templates/authorization/profile_detail.html:69
+#: templates/store/order/order_confirm.html:87
+msgid "Статус"
+msgstr "Статус"
+
+#: templates/authorization/detailed_order_page.html:92
+#: templates/authorization/history_orders.html:47
+#: templates/store/order/order_confirm.html:93
+msgid "Оплата не прошла"
+msgstr "Оплата не прошла"
+
+#: templates/authorization/detailed_order_page.html:132
+#: templates/store/order/order_confirm.html:135
+msgid "шт"
+msgstr "шт"
+
+#: templates/authorization/detailed_order_page.html:140
+#: templates/store/cart.html:102 templates/store/order/order_confirm.html:142
+msgid "Итого"
+msgstr "Итого"
+
+#: templates/authorization/detailed_order_page.html:145
+#: templates/store/order/order_confirm.html:148
+#: templates/store/order/payment.html:51
+msgid "Оплатить"
+msgstr "Оплатить"
+
+#: templates/authorization/history_orders.html:16
+#: templates/authorization/profile_detail.html:39
+msgid "от"
+msgstr "от"
+
+#: templates/authorization/history_orders.html:34
+#: templates/authorization/profile_detail.html:63
+msgid "Общая стоимость"
+msgstr "Общая стоимость"
+
+#: templates/authorization/history_orders.html:60
+#: templates/authorization/profile_detail.html:81
+msgid "У вас нет заказов"
+msgstr "У вас нет заказов"
+
+#: templates/authorization/history_view.html:58
+msgid "Просмотров в истории пока нет"
+msgstr "Просмотров в истории пока нет"
+
+#: templates/authorization/profile_detail.html:23
+msgid "Редактировать профиль"
+msgstr "Редактировать профиль"
+
+#: templates/authorization/profile_update_form.html:21
+msgid "Аватар"
+msgstr "Аватар"
+
+#: templates/authorization/profile_update_form.html:27
+msgid "Загрузить фото"
+msgstr "Загрузить фото"
+
+#: templates/authorization/profile_update_form.html:67
+msgid "Тут_можно изменить пароль"
+msgstr "Тут_можно_изменить_пароль"
+
+#: templates/authorization/profile_update_form.html:70
+msgid "Подтверждение пароля"
+msgstr "Подтверждение пароля"
+
+#: templates/authorization/profile_update_form.html:79
+msgid "Сохранить"
+msgstr "Сохранить"
+
+#: templates/banner/banner_tpl_main.html:19
+msgid "Подробнее"
+msgstr "Подробнее"
+
+#: templates/banner/banner_tpl_main.html:41
+msgid "Banners must"
+msgstr "Нет Баннера"
+
+#: templates/base/footer.html:17 templates/base/header.html:141
+#: templates/store/discount/breadcrumbs.html:8
+msgid "Главная"
+msgstr "Главная"
+
+#: templates/base/footer.html:19 templates/base/header.html:146
+msgid "Каталог"
+msgstr "Каталог"
+
+#: templates/base/footer.html:21 templates/base/header.html:149
+msgid "Сравнение"
+msgstr "Сравнение"
+
+#: templates/base/footer.html:30
+msgid "Контакты"
+msgstr "Контакты"
+
+#: templates/base/header.html:27
+msgid "Описание страницы"
+msgstr "Описание страницы"
+
+#: templates/base/header.html:84 templates/registration/login.html:11
+#: templates/registration/register.html:33
+#: templates/store/product/form-reviews.html:29
+msgid "Вход"
+msgstr "Вход"
+
+#: templates/base/header.html:85
+msgid "Регистрация "
+msgstr "Регистрация"
+
+#: templates/base/header.html:89
+msgid "Личный кабинет "
+msgstr "Личный кабинет"
+
+#: templates/base/header.html:90 templates/base/header.html:172
+msgid "Выход"
+msgstr "Выход"
+
+#: templates/base/header.html:170
+msgid "Административный раздел"
+msgstr "Административный раздел"
+
+#: templates/base/header.html:190
+msgid "Показать навигацию"
+msgstr "Показать навигацию"
+
+#: templates/base/header.html:208
+msgid "Все категории"
+msgstr "Все категории"
+
+#: templates/base/header.html:254
+msgid "Поиск"
+msgstr "Поиск"
+
+#: templates/compare/compare_products.html:30
+#: templates/store/product/description.html:24
+msgid "Значение"
+msgstr "Значение"
+
+#: templates/compare/compare_products.html:33
+msgid "Общие параметры"
+msgstr "Общие параметры"
+
+#: templates/compare/compare_products.html:37
+msgid "Тип"
+msgstr "Тип"
+
+#: templates/compare/compare_products.html:71
+msgid "Добавить в корзину"
+msgstr "Добавить в корзину"
+
+#: templates/compare/compare_products.html:82
+msgid "Очистить сравнение"
+msgstr "Очистить сравнение"
+
+#: templates/registration/logged_out.html:6
+msgid "Выход выполнен"
+msgstr "Выход выполнен"
+
+#: templates/registration/logged_out.html:8
+msgid "Нажмите сюда, чтобы войти снова"
+msgstr "Нажмите сюда, чтобы войти снова"
+
+#: templates/registration/login.html:23
+msgid "Войти"
+msgstr "Войти"
+
+#: templates/registration/login.html:25
+msgid "Забыли пароль"
+msgstr "Забыли пароль"
+
+#: templates/registration/login.html:27 templates/registration/register.html:9
+msgid "Регистрация"
+msgstr "Регистрация"
+
+#: templates/registration/password_reset_complete.html:6
+msgid "The password has been changed"
+msgstr "Пароль был изменен"
+
+#: templates/registration/password_reset_complete.html:7
+msgid "log in again"
+msgstr "Войти снова"
+
+#: templates/registration/password_reset_confirm.html:7
+msgid "Please enter (and confirm) your new password"
+msgstr "Пожалуйста, введите (и подтвердите) ваш новый пароль"
+
+#: templates/registration/password_reset_confirm.html:14
+msgid "New password"
+msgstr "Новый пароль"
+
+#: templates/registration/password_reset_confirm.html:21
+msgid "Confirm password"
+msgstr "Подтвердите пароль"
+
+#: templates/registration/password_reset_confirm.html:27
+msgid "Change my password"
+msgstr "Изменить пароль"
+
+#: templates/registration/password_reset_done.html:7
+msgid "Мы отправили вам электронное письмо с инструкциями по установке пароля"
+msgstr ""
+"Мы отправили вам электронное письмо с инструкциями по установке пароляЕсли "
+"вы его не получили в течение нескольких минут - проверьте спам"
+
+#: templates/registration/password_reset_form.html:9
+msgid "Reset password"
+msgstr "Сбросить пароль"
+
+#: templates/registration/register.html:30
+msgid "Зарегистрироваться"
+msgstr "Зарегистрироваться"
+
+#: templates/registration/register.html:38
+msgid "Вы уже зарегистрированы и авторизованы"
+msgstr "Вы уже зарегистрированы и авторизованы"
+
+#: templates/store/cart.html:59
+msgid "Показать"
+msgstr "Показать"
+
+#: templates/store/cart.html:80
+msgid "Товара нет на складе"
+msgstr "Товара нет на складе"
+
+#: templates/store/cart.html:81
+msgid "Выберите продавца"
+msgstr "Выберите продавца"
+
+#: templates/store/cart.html:113 templates/store/cart.html:117
+msgid "Оформить заказ"
+msgstr "Оформить заказ"
+
+#: templates/store/cart.html:125
+msgid "Корзина пуста"
+msgstr "Корзина пуста"
+
+#: templates/store/catalog/catalog.html:43
+#: templates/store/catalog/catalog.html:64
+#: templates/store/product/sellers.html:25
+msgid "Нет в продаже"
+msgstr "Не в продаже"
+
+#: templates/store/catalog/filter.html:7 templates/store/catalog/filter.html:42
+msgid "Фильтр"
+msgstr "Фильтр"
+
+#: templates/store/catalog/filter.html:51
+msgid "Популярные тэги"
+msgstr "Популярные тэги"
+
+#: templates/store/catalog/sorting.html:7
+msgid "Сортировать по"
+msgstr "Сортировать по"
+
+#: templates/store/catalog/sorting.html:14
+#: templates/store/catalog/sorting.html:17
+#: templates/store/catalog/sorting.html:20
+msgid "Популярности"
+msgstr "Популярности"
+
+#: templates/store/catalog/sorting.html:36
+#: templates/store/catalog/sorting.html:39
+#: templates/store/catalog/sorting.html:42
+msgid "Отзывам"
+msgstr "Отзывам"
+
+#: templates/store/catalog/sorting.html:46
+#: templates/store/catalog/sorting.html:49
+#: templates/store/catalog/sorting.html:52
+msgid "Новизне"
+msgstr "Новизне"
+
+#: templates/store/discount/breadcrumbs.html:10
+msgid "Блог"
+msgstr "Блог"
+
+#: templates/store/index.html:40
+msgid "Предложение дня"
+msgstr "Предложение дня"
+
+#: templates/store/index.html:74
+msgid "Часы"
+msgstr "Часы"
+
+#: templates/store/index.html:81
+msgid "Минуты"
+msgstr "Минуты"
+
+#: templates/store/index.html:88
+msgid "Секунды"
+msgstr "Секунды"
+
+#: templates/store/index.html:99
+msgid "Популярные товары"
+msgstr "Популярные товары"
+
+#: templates/store/index.html:151
+msgid "Горячие предложения"
+msgstr "Горячие предложения"
+
+#: templates/store/order/order.html:12
+msgid "Прогресс заполнения"
+msgstr "Прогресс заполнения"
+
+#: templates/store/order/order.html:19
+#: templates/store/order/order_create.html:11
+#: templates/store/order/order_register.html:7
+msgid "Шаг 1. Параметры пользователя"
+msgstr "Шаг 1. Параметры пользователя"
+
+#: templates/store/order/order.html:21
+#: templates/store/order/order_create.html:33
+msgid "Шаг 2. Способ доставки"
+msgstr "Шаг 2. Способ доставки"
+
+#: templates/store/order/order.html:23
+#: templates/store/order/order_create.html:58
+msgid "Шаг 3. Способ оплаты"
+msgstr "Шаг 3. Способ оплаты"
+
+#: templates/store/order/order.html:26
+msgid "Шаг 4. Подтверждение заказа"
+msgstr "Шаг 4. Подтверждение заказа"
+
+#: templates/store/order/order_confirm.html:160
+msgid "Заказов пока нет"
+msgstr "Заказов пока нет"
+
+#: templates/store/order/order_create.html:28
+#: templates/store/order/order_create.html:53
+#: templates/store/order/order_create.html:72
+#: templates/store/order/order_register.html:45
+msgid "Дальше"
+msgstr "Дальше"
+
+#: templates/store/order/order_create.html:52
+#: templates/store/order/order_create.html:71
+msgid "Назад"
+msgstr "Назад"
+
+#: templates/store/order/order_register.html:41
+msgid "Я уже зарегистрирован"
+msgstr "Я уже зарегистрирован"
+
+#: templates/store/order/payment.html:29
+msgid "уже оплачен"
+msgstr "уже оплачен"
+
+#: templates/store/order/payment.html:38
+msgid "Номер карты"
+msgstr "Номер карты"
+
+#: templates/store/order/payment.html:40
+msgid "Номер счета"
+msgstr "Номер счета"
+
+#: templates/store/order/payment.html:46
+msgid "Сгенерировать случайный счет"
+msgstr "Сгенерировать случайный счет"
+
+#: templates/store/order/payment_progress.html:10
+#: templates/store/order/payment_progress.html:15
+msgid "Ожидание оплаты"
+msgstr "Ожидание оплаты"
+
+#: templates/store/order/payment_progress.html:24
+msgid "Ждем подтверждения оплаты платежной системой"
+msgstr "Ждем подтверждения оплаты платежной системой"
+
+#: templates/store/product/description.html:6
+msgid "Описания пока нет"
+msgstr "Описания пока нет"
+
+#: templates/store/product/features.html:20
+msgid "Характеристики отсутствуют"
+msgstr "Характеристики отсутствуют"
+
+#: templates/store/product/form-reviews.html:7
+msgid "Добавить отзыв"
+msgstr "Добавить отзыв"
+
+#: templates/store/product/form-reviews.html:20
+msgid "Отправить отзыв"
+msgstr "Отправить отзыв"
+
+#: templates/store/product/form-reviews.html:28
+msgid "Чтобы оставить отзыв, вам нужно авторизоваться"
+msgstr "Чтобы оставить отзыв, вам нужно авторизоваться"
+
+#: templates/store/product/product-card.html:70
+#: templates/store/product/sellers.html:22
+msgid "Купить"
+msgstr "Купить"
+
+#: templates/store/product/product-card.html:78
+msgid "Поздравляем"
+msgstr "Поздравляем"
+
+#: templates/store/product/product-card.html:79
+msgid "Закрыть модальное окно"
+msgstr "Закрыть модальное окно"
+
+#: templates/store/product/product-card.html:82
+msgid "Товар успешно добавлен в корзину"
+msgstr "Товар успешно добавлен в корзину"
+
+#: templates/store/product/product-card.html:92
+msgid "Тэги"
+msgstr "Тэги"
+
+#: templates/store/product/product-reviews.html:29
+msgid "Показать ещё"
+msgstr "Показать ещё"
+
+#: templates/store/product/sellers.html:47
+msgid "Стоимость"
+msgstr "Стоимость"
+
+#: templates/store/product/sellers.html:64
+msgid "Сейчас этот товар никто не продает"
+msgstr "Сейчас этот товар никто не продает"
+
+#: templates/store/products_changelist.html:8
+msgid "Загрузить товары"
+msgstr "Загрузить товары"

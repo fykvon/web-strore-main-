@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% load i18n static %}
+
+
+{% block content %}
+    <div class="wrapper">
+        {% if not user.is_authenticated %}
+            <div class="header">
+                <h3 class="sign-in">{% translate 'Регистрация' %}</h3>
+            </div>
+            <div class="clear"></div>
+            <form action="#" method="post">
+                {% csrf_token %}
+                <div {% if form.username.errors %}class="form-input_error"{% endif %}>
+                    {{ form.username }}
+                </div>
+                <div class="form-error">{{ form.username.errors }}</div>
+                <div {% if form.username.errors %}class="form-input_error"{% endif %}>
+                    {{ form.email }}
+                </div>
+                <div class="form-error">{{ form.email.errors }}</div>
+                <div {% if form.username.errors %}class="form-input_error"{% endif %}>
+                    {{ form.password }}
+                </div>
+                <div class="form-error">{{ form.password.errors }}</div>
+                <div {% if form.username.errors %}class="form-input_error"{% endif %}>
+                    {{ form.password2 }}
+                </div>
+                <div class="form-error">{{ form.password2.errors }}</div>
+                <input type="submit" value={% translate 'Зарегистрироваться' %}>
+
+                <a class="registr" href="{% url 'profile:login' %}">
+                    {% translate 'Вход' %}
+                </a>
+                <div class="clear"></div>
+            </form>
+        {% else %}
+            <h2>{% translate 'Вы уже зарегистрированы и авторизованы' %} :)</h2>
+        {% endif %}
+    </div>
+{% endblock %}

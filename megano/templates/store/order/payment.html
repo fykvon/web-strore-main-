@@ -1,0 +1,59 @@
+{% extends 'base/base.html' %}
+{% load i18n static %}
+
+
+{% block content %}
+  <div class="Middle Middle_top">
+    <div class="Middle-top">
+      <div class="wrap">
+        <div class="Middle-header">
+          <h1 class="Middle-title">{% translate 'Оплата' %}
+          </h1>
+          <ul class="breadcrumbs Middle-breadcrumbs">
+            <li class="breadcrumbs-item"><a href="{% url 'store:index' %}">home</a>
+            </li>
+            <li class="breadcrumbs-item breadcrumbs-item_current"><span>{% translate 'Оплата' %}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="Section">
+      <div class="wrap">
+        {% if error %}
+          <h2>{{ error }}</h2>
+        {% else %}
+          {% if order_paid %}
+            <div class="Payment-card">
+              <div class="form-group">
+                <h2>{% translate 'Заказ' %} №{{ request.resolver_match.kwargs.pk }} {% translate 'уже оплачен' %}</h2>
+              </div>
+            </div>
+          {% else %}
+            <form class="form Payment" action="" method="post">
+              {% csrf_token %}
+              <div class="Payment-card">
+                <div class="form-group">
+                  {% if payment_type == 1 %}
+                    <label class="form-label">{% translate 'Номер карты' %} </label>
+                  {% elif payment_type == 2 %}
+                    <label class="form-label">{% translate 'Номер счета' %}</label>
+                  {% endif %}
+                  {{ form.bill }}
+                </div>
+                {% if payment_type == 2 %}
+                  <div class="form-group">
+                    <a class="btn btn_success Payment-generate" href="#">{% translate 'Сгенерировать случайный счет' %}</a>
+                  </div>
+                {% endif %}
+              </div>
+              <div class="Payment-pay">
+                <button class="btn btn_primary">{% translate 'Оплатить' %}</button>
+              </div>
+            </form>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

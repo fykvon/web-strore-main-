@@ -1,0 +1,135 @@
+{% include 'base/header.html' %}
+{% load i18n static %}
+{% load converter %}
+
+{% block content %}
+  <div class="Middle Middle_top">
+    <div class="Section">
+      <div class="wrap">
+        {% if carts %}
+          <form class="form Cart" action="#" method="post">
+            {% csrf_token %}
+            {% for item in carts %}
+              {% with cart=item.product %}
+                <div class="Cart-product">
+                  <div class="Cart-block Cart-block_row">
+                    <div class="Cart-block Cart-block_pict">
+                      <a class="Cart-pict" href="#">
+                        {% if cart.preview %}
+                          <img class="Cart-img"
+                               src="{{ cart.preview.url }}"
+                               width="120px"
+                               alt="{{ cart.name }}"/>
+                        {% else %}
+                          <img class="Cart-img"
+                               src="{% static 'assets/img/content/home/placeholder.png' %}"
+                               width="120px"
+                               alt="empty_photo"/>
+                        {% endif %}
+                      </a>
+                    </div>
+                    <div class="Cart-block Cart-block_info">
+                      <a class="Cart-title" href="#">{{ cart.name }}</a>
+                      <div class="Cart-desc">{{ cart.description.text_bottom }}</div>
+                    </div>
+                    <div class="Cart-block Cart-block_price">
+                      {% if item.d_price != 'None' %}
+                        <div class="Cart-price Cart-price_old">{{ item.price }}$
+                        </div>
+                        <div class="Cart-price">{{ item.d_price }}$
+                        </div>
+                      {% else %}
+                        <div class="Cart-price">{{ item.price }}$
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="Cart-block Cart-block_row">
+                    <div class="Cart-block Cart-block_seller">
+                      <!-- - var options = setOptions(items, ['value', 'selected', 'disabled']);-->
+                      <div>
+                        <form method="post">
+                          {% csrf_token %}
+                          <select name="offer" id="element">
+                            <option value="{{ item.offer_id }}">{{ item.offer_name }}</option>
+                            {% for offer in cart.offers.all %}
+                              <option value="{{ offer.id }}">{{ offer.seller.name_store }}</option>
+                            {% endfor %}
+                          </select>
+                          <button style="width: 100%" type="submit">{% translate 'Показать' %}</button>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="Cart-block Cart-block_amount">
+                      {% for offer in offers %}
+                        {% if offer.id  ==  item.offer_id|converter_to_int %}
+                          <div class="Cart-amount">
+                            <div class="Amount">
+                              {% if offer.amount > 0 %}
+                                <button class="button-visible take-product"
+                                        type="button">
+                                  <a href="{% url 'cart:take_product' cart.slug %}">—</a>
+                                </button>
+                                <label class="quantity-product">{{ item.quantity }}</label>
+                                <button class="button-visible add-product"
+                                        type="button">
+                                  <a href="{% url 'cart:add_product' cart.slug %}">+</a>
+                                </button>
+                              {% else %}
+                                <div>
+                                  <span>{% translate 'Товара нет на складе' %}.</span>
+                                  <span>{% translate 'Выберите продавца' %}.</span>
+                                </div>
+                              {% endif %}
+                            </div>
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+
+                    </div>
+                    <div class="Cart-block Cart-block_delete">
+                      <a class="Cart-delete" href="{% url 'cart:delete_product' cart.slug %}">
+                        <img src="{% static 'assets/img/icons/card/delete.svg' %}"
+                             alt="delete.svg"/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              {% endwith %}
+            {% endfor %}
+            <div class="Cart-total">
+              <div class="Cart-block Cart-block_total">
+                <strong class="Cart-title">{% translate 'Итого' %}:
+                  {% if total_price != cart.get_total_price %}
+                    </strong><span class="Cart-price">{{ total_price }}$</span>
+                    <span class="Cart-price_old">{{ cart.get_total_price }}$</span>
+                  {% else %}
+                    </strong><span class="Cart-price">{{ total_price }}$</span>
+                  {% endif %}
+              </div>
+              <div class="Cart-block">
+                {% if user.is_authenticated %}
+                  <a class="btn btn_success btn_lg"
+                     href="{% url 'store:order_create' user.id %}">{% translate 'Оформить заказ' %}
+                  </a>
+                {% else %}
+                  <a class="btn btn_success btn_lg"
+                     href="{% url 'store:order_reg' %}">{% translate 'Оформить заказ' %}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </form>
+        {% else %}
+          <div class="cart-empty">
+            <h1 class="form-title">{% translate 'Корзина пуста' %}</h1>
+            <img class="cart-empty-img" src="{% static 'assets/img/content/home/VBWY.gif' %}"
+                 alt="cart_empty">
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% include 'base/footer.html' %}

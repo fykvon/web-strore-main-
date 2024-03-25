@@ -1,0 +1,97 @@
+{% extends 'authorization/account.html' %}
+{% load i18n static %}
+
+
+{% block content123 %}
+  <div class="Section-content">
+    <div class="Profile">
+
+      <form class="form Profile-form" action="#" method="post" enctype="multipart/form-data">
+
+        {% if error %}
+          {{ error }}
+        {% endif %}
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="row-block">
+
+            <div class="form-group">
+
+              <label class="form-label" for="avatar">{% translate 'Аватар' %}
+              </label>
+              <div class="form-error">{{ form.errors.avatar }}</div>
+              <div class="Profile-avatar Profile-avatar_noimg">
+
+                <label class="Profile-fileLabel" for="avatar">
+                  <img src="{% static 'assets/img/icons/upload.png' %}" alt="upload.png"/>{% translate 'Загрузить фото' %}
+                </label>
+                <input class="Profile-file form-input{% if form.errors.avatar %}form-input_error{% endif %}"
+                       id="avatar" name="avatar" type="file" enctype="multipart/form-data"
+                       data-validate="onlyImgAvatar"/>
+              </div>
+            </div>
+            <div class="form-group">
+
+              <label class="form-label" for="name">{% translate 'ФИО' %}
+              </label>
+              <div class="form-error">{{ user_form.errors.name }}</div>
+              <input class="form-input{% if user_form.errors.name %}form-input_error{% endif %}" id="name" name="name"
+                     type="text" value=""
+                     data-validate="require">
+            </div>
+          </div>
+          <div class="row-block">
+            <div class="form-group">
+
+              <label class="form-label" for="phone">{% translate 'Телефон' %}
+              </label>
+              <div class="form-error">{{ form.errors.phone }}</div>
+              <input class="form-input {% if form.errors.phone %}form-input_error{% endif %}" id="phone"
+                     name="phone" type="text" placeholder="+7(999)9999999"
+                     data-mask="+7(999)9999999">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">E-mail
+              </label>
+              <div class="form-error">{{ user_form.errors.email }}</div>
+              <input class="form-input {% if user_form.errors.email %}form-input_error{% endif %}" id="email"
+                     name="email" type="email" value="" placeholder="send@test.test"
+                     data-validate="require">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="password">{% translate 'Пароль' %}
+              </label>
+              <div class="form-error">{{ user_form.errors.password }}</div>
+              <input class="form-input {% if user_form.errors.password %}form-input_error{% endif %}" id="password"
+                     name="password" type="password" placeholder={% translate "Тут_можно изменить пароль" %} />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="password_2">{% translate 'Подтверждение пароля' %}
+              </label>
+              <div class="form-error">{{ user_form.errors.password_2 }}</div>
+              <input class="form-input{% if user_form.errors.password_2 %}form-input_error{% endif %}" id="password_2"
+                     name="password_2" type="password"
+                     placeholder={% translate "Введите пароль повторно" %} />
+            </div>
+            <div class="form-group">
+              <div class="Profile-btn">
+                <button class="btn btn_success" type="submit">{% translate 'Сохранить' %}
+                </button>
+              </div>
+              {% if messages %}
+                <div class="Profile-success">
+                {% for message in messages %}
+                  <li {% if message.tags %} {% endif %}>{{ message }}</li>
+                {% endfor %}
+
+
+              {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

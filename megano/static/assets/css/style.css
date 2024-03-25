@@ -1,0 +1,75 @@
+.button-visible {
+    padding: 13px;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    font-size: 27px;
+}
+
+.take-product {
+    margin-right: 20px;
+}
+
+.add-product {
+    margin-left: 20px;
+}
+
+.quantity-product {
+    font-size: 23px;
+}
+
+.banner-img {
+    height: 100%
+}
+
+.non-product {
+    font-size: 25px;
+    color: #bca6bb;
+}
+
+.form .form-input-error {
+    border-color: #f26d7d;
+}
+
+input[type="email"] {
+    background: transparent;
+    color: rgb(0, 99, 209);
+}
+
+.seller {
+    font-size:22px;
+}
+
+.not-sale {
+    padding-right: 5px;
+    font-size: 10px;
+}
+
+.cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-empty-img {
+    border-radius: 10px;
+}
+
+.flex {
+    display: flex;
+}
+
+.reset-input {
+    min-height: 0;
+    height: 0;
+}
+
+.select-language {
+    min-height: 0;
+    margin-right: 15px;
+}
+
+.btn-language {
+    padding: 5px 15px;
+    background: #0063d1;
+    border:0;
+}

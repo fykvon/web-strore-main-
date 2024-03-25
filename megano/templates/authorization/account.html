@@ -1,0 +1,39 @@
+{% extends "store/index.html" %}
+{% load cache %}
+{% load i18n static %}
+
+
+{% block content %}
+  <div class="Middle Middle_top">
+    <div class="Section Section_column Section_columnLeft">
+      <div class="wrap">
+        {% if user.is_authenticated %}
+          <div class="Section-column">
+            <div class="Section-columnSection">
+              <header class="Section-header">
+                <strong class="Section-title">{% translate 'Навигация' %}
+                </strong>
+              </header>
+              <div class="Section-columnContent">
+                <div class="NavigateProfile">
+                  {% for m in menu %}
+                    <ul class="menu menu_vt">
+                      <li class="menu-item {% if id == m.id %} menu-item_ACTIVE {% endif %}">
+                        <a class="menu-link" href="{% url m.url slug=request.user.profile.slug %}">{{ m.name }}</a>
+                      </li>
+                    </ul>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+          {% block content123 %}
+
+          {% endblock %}
+        {% else %}
+          <p>{% translate 'Пожалуйста, авторизуйтесь' %}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% load i18n static%}
+{% load get_param_tags %}
+{% block content %}
+
+
+  <div class="Sort">
+    <div class="Sort-title">{% translate 'Сортировать по' %}:
+    </div>
+    <div class="Sort-variants">
+      {% csrf_token %}
+      <div class="Sort-variants">
+        {% if request.GET.sorting == 'popular-down' %}
+          <a class="Sort-sortBy Sort-sortBy_inc"
+             href="{% add_get_param full_path 'sorting' 'popular-up' %}">{% translate 'Популярности' %}</a>
+        {% elif request.GET.sorting == 'popular-up' %}
+          <a class="Sort-sortBy Sort-sortBy_dec"
+             href="{% add_get_param full_path 'sorting' 'popular-down' %}">{% translate 'Популярности' %}</a>
+        {% else %}
+          <a class="Sort-sortBy"
+             href="{% add_get_param full_path 'sorting' 'popular-up' %}">{% translate 'Популярности' %}</a>
+        {% endif %}
+
+        {% if request.GET.sorting == 'price-down' %}
+          <a class="Sort-sortBy Sort-sortBy_inc"
+             href="{% add_get_param full_path 'sorting' 'price-up' %}">{% translate 'Цена' %}</a>
+        {% elif request.GET.sorting == 'price-up' %}
+          <a class="Sort-sortBy Sort-sortBy_dec"
+             href="{% add_get_param full_path 'sorting' 'price-down' %}">{% translate 'Цена' %}</a>
+        {% else %}
+          <a class="Sort-sortBy"
+             href="{% add_get_param full_path 'sorting' 'price-up' %}">{% translate 'Цена' %}</a>
+        {% endif %}
+
+        {% if request.GET.sorting == 'reviews-down' %}
+          <a class="Sort-sortBy Sort-sortBy_inc"
+             href="{% add_get_param full_path 'sorting' 'reviews-up' %}">{% translate 'Отзывам' %}</a>
+        {% elif request.GET.sorting == 'reviews-up' %}
+          <a class="Sort-sortBy Sort-sortBy_dec"
+             href="{% add_get_param full_path 'sorting' 'reviews-down' %}">{% translate 'Отзывам' %}</a>
+        {% else %}
+          <a class="Sort-sortBy"
+             href="{% add_get_param full_path 'sorting' 'reviews-up' %}">{% translate 'Отзывам' %}</a>
+        {% endif %}
+        {% if request.GET.sorting == 'novelty-down' %}
+          <a class="Sort-sortBy Sort-sortBy_inc"
+             href="{% add_get_param full_path 'sorting' 'novelty-up' %}">{% translate 'Новизне' %}</a>
+        {% elif request.GET.sorting == 'novelty-up' %}
+          <a class="Sort-sortBy Sort-sortBy_dec"
+             href="{% add_get_param full_path 'sorting' 'novelty-down' %}">{% translate 'Новизне' %}</a>
+        {% else %}
+          <a class="Sort-sortBy"
+             href="{% add_get_param full_path 'sorting' 'novelty-up' %}">{% translate 'Новизне' %}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

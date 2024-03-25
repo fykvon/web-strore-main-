@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+  <div class="Middle Middle_top">
+    <div class="Section">
+      <div class="wrap">
+        <div class="Product">
+          {% include "store/product/product-card.html" %}
+          <div class="Tabs Tabs_default">
+            <div class="Tabs-links">
+              <a class="Tabs-link" href="#description">
+                <span>{% translate 'Описание' %}</span>
+              </a>
+              <a class="Tabs-link" href="#sellers">
+                <span>{% translate 'Продавцы' %}</span>
+              </a>
+              <a class="Tabs-link" href="#addit">
+                <span>{% translate 'Характеристика' %}</span>
+              </a>
+              <a class="Tabs-link" href="#reviews">
+                <span>{% translate 'Отзывы' %} ({{ num_reviews }})</span>
+              </a>
+            </div>
+            <div class="Tabs-wrap">
+              {% include "store/product/description.html" %}
+              {% include "store/product/sellers.html" %}
+              {% include "store/product/features.html" %}
+              {% include "store/product/product-reviews.html" %}
+              {% include "store/product/reviews-all.html" %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

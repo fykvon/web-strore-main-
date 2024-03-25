@@ -1,0 +1,87 @@
+{% include 'base/header.html' %}
+{% load i18n static %}
+{% block content %}
+
+
+<div class="Middle">
+    <div class="wrap">
+
+        <div class="Product">
+            <div class="ProductCard">
+                {% for product, details in product_characteristic_list.items %}
+                <div class="ProductCard-desc">
+                    <div class="ProductCard-header">
+                        <h2 class="ProductCard-title">{{ details.product_name }}
+                        </h2>
+
+                        <div class="ProductCard-look">
+                            <div class="ProductCard-photo">
+                                <img src="{{ details.product_preview_url }}">
+                            </div>
+                        </div>
+                        <div class="Tabs Tabs_default">
+                            <div class="Tabs-wrap">
+                                <div class="Tabs-block" id="description">
+                                    <div class="table">
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <th class="hed">{% translate 'Характеристика' %}</th>
+                                                <th class="hed">{% translate 'Значение' %}</th>
+                                            </tr>
+                                            <tr>
+                                                <td><b>{% translate 'Общие параметры' %}</b></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="comparis">{% translate 'Тип' %}</td>
+                                                <td class="comparis">{{ details.product_category }}</td>
+                                                {% for key, value in details.characterisctics.items %}
+
+                                            <tr>
+                                                <td>{{ key }}</td>
+                                                <td>{{ value }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                            {% for key, value in details.product_characteristic_list.items %}
+                                            <tr>
+                                                <td>{{ key }}</td>
+                                                <td>{{ value }}</td>
+                                            </tr>
+                                            {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="ProductCard-info">
+                        <div class="ProductCard-cost">
+                            <div class="ProductCard-price">${{ details.product_price }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ProductCard-cart">
+                        <div class="ProductCard-cartElement"><a class="btn btn_primary"
+                                                                href="{% url 'cart:add_product_to_cart' details.product_offer_id %}"><img
+                                class="btn-icon" src="{% static 'assets/img/icons/card/cart_white.svg' %}"
+                                alt="cart_white.svg"><span class="btn-content">{% translate 'Добавить в корзину' %}</span></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<form action="{% url 'compare:clear_comparison' %}" method="get">
+    <button type="submit">{% translate 'Очистить сравнение' %}</button>
+</form>
+
+{% endblock %}
+
+{% include 'base/footer.html' %}

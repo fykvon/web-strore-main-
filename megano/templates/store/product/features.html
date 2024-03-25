@@ -1,0 +1,23 @@
+{% load i18n static %}
+
+
+<div class="Tabs-block" id="addit">
+  <div class="Product-props">
+    {% if feature %}
+      {% for key, value in feature.characteristics.items %}
+        <div class="Product-prop">
+          <strong>{{ key }}
+          </strong><span> {{ value }} </span>
+        </div>
+      {% endfor %}
+      {% for key, value in feature.product_characteristic_list.items %}
+        <div class="Product-prop">
+          <strong>{{ key }}
+          </strong><span> {{ value }} </span>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>{% translate 'Характеристики отсутствуют' %}</p>
+    {% endif %}
+  </div>
+</div>

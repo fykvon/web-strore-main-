@@ -1,0 +1,78 @@
+{% extends "store/order/order.html" %}
+{% load i18n static %}
+
+
+{% block order_create %}
+  <form class="form" action='' method="post"
+        enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="Order-block Order-block_OPEN" id="step1">
+      <header class="Section-header Section-header_sm">
+        <h2 class="Section-title">{% translate 'Шаг 1. Параметры пользователя' %}
+        </h2>
+      </header>
+
+      <div class="row">
+        <div class="row-block">
+          <div class="form-group">
+            {{ form.name.label }}
+            {{ form.name }}
+          </div>
+          <div class="form-group">
+            {{ form.phone.label }}
+            {{ form.phone }}
+          </div>
+        </div>
+      </div>
+      <div class="Order-footer">
+        <a class="btn btn_success Order-next" href="#step2">{% translate 'Дальше' %}</a>
+      </div>
+    </div>
+    <div class="Order-block" id="step2">
+      <header class="Section-header Section-header_sm">
+        <h2 class="Section-title">{% translate 'Шаг 2. Способ доставки' %}
+        </h2>
+      </header>
+      <div class="row">
+        <div class="row-block">
+          <div class="form-group">
+            {{ form.delivery }}
+          </div>
+          <div class="form-group">
+            {{ form.city.label }}
+            {{ form.city }}
+          </div>
+          <div class="form-group">
+            {{ form.address.label }}
+            {{ form.address }}
+          </div>
+        </div>
+      </div>
+      <div class="Order-footer">
+        <a class="btn btn_success Order-next" href="#step1">{% translate 'Назад' %}</a>
+        <a class="btn btn_success Order-next" href="#step3">{% translate 'Дальше' %}</a>
+      </div>
+    </div>
+    <div class="Order-block" id="step3">
+      <header class="Section-header Section-header_sm">
+        <h2 class="Section-title">{% translate 'Шаг 3. Способ оплаты' %}
+        </h2>
+      </header>
+      <div class="row">
+        <div class="row-block">
+          <div class="form-group">
+            {{ form.payment }}
+          </div>
+          <div class="form-group">
+            {{ form.email.label }}
+            {{ form.email }}
+          </div>
+          <div class="Order-footer">
+            <a class="btn btn_success Order-next" href="#step2">{% translate 'Назад' %}</a>
+            <button class="btn btn_primary btn_lg" type="submit">{% translate 'Дальше' %}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+{% endblock %}

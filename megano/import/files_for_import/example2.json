@@ -1,0 +1,79 @@
+[
+  {
+    "product": {
+      "name": "OnePlus 9 Pro",
+      "name_en": "OnePlus 9 Pro",
+      "name_ru": "OnePlus 9 Pro",
+      "category": "Мобильные телефоны",
+      "description": {
+        "title": "Мощный смартфон OnePlus",
+        "card_text": [
+          "Производительность на высшем уровне",
+          "Профессиональная камера Hasselblad",
+          "Быстрая зарядка Warp Charge 65T"
+        ],
+        "text_bottom": "OnePlus 9 Pro - смартфон для тех, кто ценит высокую производительность и качественные снимки. Он оснащен мощным процессором, профессиональной камерой от Hasselblad и быстрой зарядкой Warp Charge 65T. AMOLED-дисплей с частотой обновления 120 Гц для плавного отображения контента.",
+        "text_bottom_ul": [
+          "5G поддержка для быстрого интернета",
+          "Изогнутый экран для элегантного дизайна",
+          "Операционная система OxygenOS на базе Android"
+        ]
+      },
+      "description_en": {
+        "title": "Powerful OnePlus smartphone",
+        "card_text": [
+          "Performance at the highest level",
+          "Hasselblad professional camera",
+          "Fast charging Warp Charge 65T"
+        ],
+        "text_bottom": "OnePlus 9 Pro is a smartphone for those who value high performance and high-quality pictures. It is equipped with a powerful processor, a professional Hasselblad camera and Warp Charge 65T fast charging. AMOLED display with 120Hz refresh rate for smooth content display.",
+        "text_bottom_ul": [
+          "5G support for fast internet",
+          "Curved screen for sleek design",
+          "Operating system OxygenOS based on Android"
+        ]
+      },
+      "description_ru": {
+        "title": "Мощный смартфон OnePlus",
+        "card_text": [
+          "Производительность на высшем уровне",
+          "Профессиональная камера Hasselblad",
+          "Быстрая зарядка Warp Charge 65T"
+        ],
+        "text_bottom": "OnePlus 9 Pro - смартфон для тех, кто ценит высокую производительность и качественные снимки. Он оснащен мощным процессором, профессиональной камерой от Hasselblad и быстрой зарядкой Warp Charge 65T. AMOLED-дисплей с частотой обновления 120 Гц для плавного отображения контента.",
+        "text_bottom_ul": [
+          "5G поддержка для быстрого интернета",
+          "Изогнутый экран для элегантного дизайна",
+          "Операционная система OxygenOS на базе Android"
+        ]
+      },
+      "preview": "https://ir-3.ozone.ru/s3/multimedia-c/wc1000/6098630364.jpg",
+      "limited_edition": true
+    },
+    "tags": [
+      "OnePlus",
+      "smartphone",
+      "Hasselblad"
+    ],
+    "images": [
+      "https://ir-3.ozone.ru/s3/multimedia-k/wc1000/6098630300.jpg",
+      "https://ir-3.ozone.ru/s3/multimedia-t/wc1000/6098630309.jpg"
+    ],
+    "feature": {
+      "made_in": "Китай",
+      "production_year": 2023,
+      "color": "черный",
+      "weight": null,
+      "phone_type": "smartphone",
+      "screen_size": null,
+      "screen_resolution": null,
+      "screen_technology": "AMOLED",
+      "op_system": "OxygenOS"
+    },
+    "seller": "Mike's Electronics",
+    "offer": {
+      "unit_price": "799.00",
+      "amount": 30
+    }
+  }
+]

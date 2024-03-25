@@ -1,0 +1,68 @@
+{% load static %}
+{% load i18n static %}
+
+
+<footer class="Footer">
+  <div class="wrap">
+    <div class="row Footer-main">
+      <div class="row-block">
+        <a class="logo Footer-logo" href="{% url 'store:index' %}">
+          <img class="logo-image" src="{% static 'assets/img/logo_footer.png' %}" alt="logo_footer.png"/>
+        </a>
+      </div>
+      <div class="row-block">
+        <strong class="Footer-title">{% translate 'Навигация' %}
+        </strong>
+        <ul class="menu menu_vt Footer-menu">
+          <li class="menu-item"><a class="menu-link" href="{% url 'store:index' %}">{% translate 'Главная' %}</a>
+          </li>
+          <li class="menu-item"><a class="menu-link" href="{% url 'store:catalog' %}">{% translate 'Каталог' %}</a>
+          </li>
+          <li class="menu-item"><a class="menu-link" href="{% url 'compare:comparison' %}">{% translate 'Сравнение' %}</a>
+          </li>
+          {% if user.is_authenticated %}
+            <li class="menu-item"><a class="menu-link" href="{%  url 'profile:profile_details' slug=user.profile.slug %}">{% translate 'Профиль' %}</a></li>
+          {% endif %}
+
+        </ul>
+      </div>
+      <div class="row-block">
+        <strong class="Footer-title">{% translate 'Контакты' %}
+        </strong>
+        <p>{% translate 'Phone' %}: 8.800.200.600<br>Email: xxx@meg.com<br>
+        </p>
+        <ul class="menu menu_img menu_smallImg Footer-menuSoc">
+          <li class="menu-item"><a class="menu-link" href="#"><img
+              src="{% static 'assets/img/icons/socialFooter/fb.svg' %}" alt="fb.svg"/></a>
+          </li>
+          <li class="menu-item"><a class="menu-link" href="#"><img
+              src="{% static 'assets/img/icons/socialFooter/tw.svg' %}" alt="tw.svg"/></a>
+          </li>
+          <li class="menu-item"><a class="menu-link" href="#"><img
+              src="{% static 'assets/img/icons/socialFooter/in.svg' %}" alt="in.svg"/></a>
+          </li>
+          <li class="menu-item"><a class="menu-link" href="#"><img
+              src="{% static 'assets/img/icons/socialFooter/pt.svg' %}" alt="pt.svg"/></a>
+          </li>
+          <li class="menu-item"><a class="menu-link" href="#"><img
+              src="{% static 'assets/img/icons/socialFooter/mail.svg' %}" alt="mail.svg"/></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!--+Middle-->
+<!--    +div.-top-->
+<!--        +breadcrumbs('Главная','Портфолио')-->
+<!--    +Article('portfolio')-->
+<!---->
+<script src="{% static 'assets/plg/jQuery/jquery-3.5.0.slim.min.js' %}"></script>
+<script src="{% static 'assets/plg/form/jquery.form.js' %}"></script>
+<script src="{% static 'assets/plg/form/jquery.maskedinput.min.js' %}"></script>
+<script src="{% static 'assets/plg/range/ion.rangeSlider.min.js' %}"></script>
+<script src="{% static 'assets/plg/Slider/slick.min.js' %}"></script>
+<script src="{% static 'assets/js/scripts.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+{% extends 'admin/change_list.html' %}
+{% load i18n %}
+
+{% block object-tools-items %}
+  {% load admin_urls %}
+  <li>
+    <a class="addlink" href="{% url 'admin:import_json_file' %}">
+      {% translate 'Загрузить товары' %}
+    </a>
+  </li>
+  {{ block.super }}
+{% endblock %}

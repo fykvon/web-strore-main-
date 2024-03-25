@@ -1,0 +1,266 @@
+{% extends "base/base.html" %}
+{% load banners_tags %}
+{% load i18n static %}
+
+
+{% block content %}
+  {% block banner %}
+    {% banner_main_page %}
+  {% endblock %}
+  <div class="Middle">
+    <div class="Section">
+      <div class="wrap">
+        <div class="BannersHome">
+          {% for banner in banners_category %}
+            <a class="BannersHomeBlock" href="{% url 'store:category' slug=banner.category.slug %}">
+              <div class="BannersHomeBlock-row">
+                <div class="BannersHomeBlock-block">
+                  <strong class="BannersHomeBlock-title">{{ banner.category.name }}
+                  </strong>
+                  <div class="BannersHomeBlock-content">from&#32;<span
+                          class="BannersHomeBlock-price">${{ banner.category.get_min_price }}</span>
+                  </div>
+                </div>
+                <div class="BannersHomeBlock-block">
+                  <div class="BannersHomeBlock-img"><img src="{{ banner.preview.url }}"/>
+                  </div>
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="Section Section_column Section_columnLeft Section_columnDesktop">
+      <div class="wrap">
+        {% if limited_deals %}
+          <div class="Section-column">
+            <div class="Section-columnSection Section-columnSection_mark">
+              <header class="Section-columnHeader">
+                <strong class="Section-columnTitle">{% translate 'Предложение дня' %}
+                </strong>
+              </header>
+              <div class="Card">
+                <a class="Card-picture" href="{% url 'store:product-detail' slug=limited_deals.slug %}">
+                  {% if limited_deals.preview %}
+                    <img src="{{ limited_deals.preview.url }}"/>
+                  {% else %}
+                    <img src="{% static 'assets/img/content/home/placeholder.png' %}"
+                         alt="empty_photo"/>
+                  {% endif %}
+                </a>
+                <div class="Card-content">
+
+                  <strong class="Card-title"><a
+                          href="{% url 'store:product-detail' slug=limited_deals.slug %}">{{ limited_deals.name }}</a>
+                  </strong>
+                  <div class="Card-description">
+                    <div class="Card-cost">
+                      {% if limited_deals.get_discount_price %}
+                        <span class="Card-priceOld">${{ limited_deals.get_average_price }}</span>
+                        <span class="Card-price">${{ limited_deals.get_discount_price }}</span>
+                      {% else %}
+                        <span class="Card-price">${{ limited_deals.get_average_price }}</span>
+                      {% endif %}
+                    </div>
+                    <div class="Card-category">{{ limited_deals.category }}
+                    </div>
+                  </div>
+                  <div class="CountDown" data-date="{{ limited_deals.time }}">
+                    <div class="CountDown-block">
+                      <div class="CountDown-wrap">
+                        <div class="CountDown-hours">
+                        </div>
+                        <span class="CountDown-label">{% translate 'Часы' %}</span>
+                      </div>
+                    </div>
+                    <div class="CountDown-block">
+                      <div class="CountDown-wrap">
+                        <div class="CountDown-minutes">
+                        </div>
+                        <span class="CountDown-label">{% translate 'Минуты' %}</span>
+                      </div>
+                    </div>
+                    <div class="CountDown-block">
+                      <div class="CountDown-wrap">
+                        <div class="CountDown-secs">
+                        </div>
+                        <span class="CountDown-label">{% translate 'Секунды' %}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+        <div class="Section-content">
+          <header class="Section-header">
+            <h2 class="Section-title">{% translate 'Популярные товары' %}
+            </h2>
+          </header>
+          <div class="Cards">
+            {% for product in object_list %}
+              <div class="Card">
+                <a class="Card-picture" href="{% url 'store:product-detail' slug=product.slug %}">
+                  {% if product.preview %}
+                    <img src="{{ product.preview.url }}"/>
+                  {% else %}
+                    <img src="{% static 'assets/img/content/home/placeholder.png' %}"
+                         alt="empty_photo"/>
+                  {% endif %}
+                </a>
+                <div class="Card-content">
+                  <strong class="Card-title"><a
+                          href="{% url 'store:product-detail' slug=product.slug %}">{{ product.name }}</a>
+                  </strong>
+                  <div class="Card-description">
+                    <div class="Card-cost">
+                      {% if product.get_discount_price %}
+                        <span class="Card-priceOld">${{ product.get_average_price }}</span>
+                        <span class="Card-price">${{ product.get_discount_price }}</span>
+                      {% else %}
+                        <span class="Card-price">${{ product.get_average_price }}</span>
+                      {% endif %}
+                    </div>
+                    <div class="Card-category">{{ product.category }}
+                    </div>
+                    <div class="Card-hover">
+                      {% if product.offers.all %}
+                        <a class="Card-btn" href="{% url 'cart:add_product_to_cart' product.offers.first.id %}">
+                          <img src="{% static 'assets/img/icons/card/cart.svg' %}" alt="cart.svg"/>
+                        </a>
+                      {% endif %}
+                      <a class="Card-btn" href="">
+                        <form action="{% url 'compare:add_to_comparison' product.id %}"
+                              method="get">
+                          <button type="submit">
+                            <img src="{% static 'assets/img/icons/card/change.svg' %}"
+                                 alt="change.svg"/>
+                          </button>
+                        </form>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Section Section_dark">
+      <div class="wrap">
+        <div class="Section-content">
+          <div class="Slider Slider_carousel">
+            <header class="Section-header">
+              <h2 class="Section-title">{% translate 'Горячие предложения' %}
+              </h2>
+              <div class="Section-control">
+                <div class="Slider-navigate">
+                </div>
+              </div>
+            </header>
+            <div class="Slider-box Cards Cards_hz">
+              {% for product in hot_offers %}
+                <div class="Slider-item">
+                  <div class="Slider-content">
+                    <div class="Card">
+                      <a class="Card-picture" href="{% url 'store:product-detail' slug=product.slug %}">
+                        {% if product.preview %}
+                          <img src="{{ product.preview.url }}"/>
+                        {% else %}
+                          <img src="{% static 'assets/img/content/home/placeholder.png' %}"
+                               alt="empty_photo"/>
+                        {% endif %}
+                      </a>
+                      <div class="Card-content">
+                        <strong class="Card-title"><a
+                                href="{% url 'store:product-detail' slug=product.slug %}">{{ product.name }}</a>
+                        </strong>
+                        <div class="Card-description">
+                          <div class="Card-cost">
+                            {% if  product.get_discount_price %}
+                              <span class="Card-priceOld">${{ product.get_average_price }}</span>
+                              <span class="Card-price">${{ product.get_discount_price }}</span>
+                            {% else %}
+                              <span class="Card-price">${{ product.get_average_price }}</span>
+                            {% endif %}
+                          </div>
+                          <div class="Card-category">{{ product.category }}
+                          </div>
+                          <div class="Card-hover"></a><a class="Card-btn"
+                                                         href="{% url 'cart:add_product_to_cart' product.offers.first.id %}"><img
+                                  src="{% static 'assets/img/icons/card/cart.svg' %}" alt="cart.svg"/></a><a
+                                  class="Card-btn" href=""><img src="{% static 'assets/img/icons/card/change.svg' %}"/></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Section Section_column Section_columnRight">
+      <div class="wrap">
+        <div class="Section-content">
+          <div class="Slider Slider_carousel">
+            <header class="Section-header Section-header_close">
+              <h2 class="Section-title">{% translate 'Ограниченный тираж' %}
+              </h2>
+              <div class="Section-control">
+                <div class="Slider-navigate">
+                </div>
+              </div>
+            </header>
+            <div class="Slider-box Cards">
+              {% for product in limited_edition %}
+                <div class="Slider-item">
+                  <div class="Slider-content">
+                    <div class="Card">
+                      <a class="Card-picture" href="{% url 'store:product-detail' slug=product.slug %}">
+                        {% if product.preview %}
+                          <img src="{{ product.preview.url }}"/>
+                        {% else %}
+                          <img src="{% static 'assets/img/content/home/placeholder.png' %}"
+                               alt="empty_photo"/>
+                        {% endif %}
+                      </a>
+                      <div class="Card-content">
+                        <strong class="Card-title"><a
+                                href="{% url 'store:product-detail' slug=product.slug %}">{{ product.name }}</a>
+                        </strong>
+                        <div class="Card-description">
+                          <div class="Card-cost">
+                            {% if product.get_discount_price %}
+                              <span class="Card-priceOld">${{ product.get_average_price }}</span>
+                              <span class="Card-price">${{ product.get_discount_price }}</span>
+                            {% else %}
+                              <span class="Card-price">${{ product.get_average_price }}</span>
+                            {% endif %}
+                          </div>
+                          <div class="Card-category">{{ product.category }}
+                          </div>
+                          <div class="Card-hover"><a class="Card-btn"
+                                                     href="{% url 'cart:add_product_to_cart' product.offers.first.id %}"><img
+                                  src="{% static 'assets/img/icons/card/cart.svg' %}" alt="cart.svg"/></a><a
+                                  class="Card-btn" href=""><img src="{% static 'assets/img/icons/card/change.svg' %}"
+                                                                alt="change.svg"/></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

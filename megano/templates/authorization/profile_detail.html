@@ -1,0 +1,87 @@
+{% extends 'authorization/account.html' %}
+{% load i18n static %}
+
+
+{% block content123 %}
+  <div class="Section-content">
+    <div class="Account">
+      <div class="Account-group">
+        <div class="Account-column">
+          {% if user.profile.avatar %}
+            <div class="Account-avatar"><img src="{{ user.profile.avatar.url }}" alt="card.jpg"/>
+            </div>
+          {% endif %}
+        </div>
+        <div class="Account-column">
+          <div class="Account-name">
+            {% if user.first_name and user.last_name %}
+              {{ user.first_name }} {{ user.last_name }}
+            {% else %}
+              {% firstof user.first_name user.username %}
+            {% endif %}
+          </div>
+          <a class="Account-editLink" href="{% url 'profile:profile' slug=user.profile.slug %}">{% translate 'Редактировать профиль' %}
+            </a>
+        </div>
+      </div>
+      <div class="Account-group">
+        <div class="Account-column Account-column_full">
+          {% if order %}
+            {% for order_id in order %}
+              <div class="Order Order_anons">
+                <div class="Order-personal">
+                  <div class="row">
+                    <div class="row-block"><a class="Order-title"
+                                              href="{% url 'profile:detailed_order'
+                                                  slug=request.user.profile.slug pk=order_id.pk %}">
+                      {% translate 'Заказ' %}&#32;<span
+                        class="Order-numberOrder">
+                    №{{ order_id.id }} </span>&#32;{% translate 'от' %}&#32;
+                      <span class="Order-dateOrder">{{ order_id.created_at|date:"d.m.Y" }}</span></a>
+                      <div class="Account-editLink">
+                        <a href="{% url 'profile:history_orders' slug=request.user.profile.slug %}">
+                          {% translate 'История заказов' %}</a>
+                      </div>
+                    </div>
+
+                    <div class="row-block">
+
+                      <div class="Order-info Order-info_delivery">
+                        <div class="Order-infoType">{% translate 'Тип доставки' %}:
+                        </div>
+                        <div class="Order-infoContent">{{ order_id.get_delivery_type_display }}
+                        </div>
+                      </div>
+                      <div class="Order-info Order-info_pay">
+                        <div class="Order-infoType">{% translate 'Оплата' %}:
+                        </div>
+                        <div class="Order-infoContent">{{ order_id.get_payment_display }}
+                        </div>
+                      </div>
+
+                      <div class="Order-info">
+                        <div class="Order-infoType">{% translate 'Общая стоимость' %}:
+                        </div>
+                        <div class="Order-infoContent">{{ order_id.total_payment }}$
+                        </div>
+                      </div>
+                      <div class="Order-info Order-info_status">
+                        <div class="Order-infoType">{% translate 'Статус' %}:
+                        </div>
+                        <div class="Order-infoContent">{{ order_id.get_status_display }}
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <h5>{% translate 'У вас нет заказов' %}</h5>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

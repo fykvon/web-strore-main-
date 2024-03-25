@@ -1,0 +1,63 @@
+{% extends 'authorization/account.html' %}
+{% load i18n static %}
+
+
+{% block content123 %}
+  <div class="Section-content">
+    {% if orders %}
+      {% for order in orders %}
+        <div class="Orders">
+          <div class="Order Order_anons">
+            <div class="Order-personal">
+              <div class="row">
+                <div class="row-block">
+                  <a class="Order-title"
+                     href="{% url 'profile:detailed_order' slug=request.user.profile.slug pk=order.id %}">{% translate 'Заказ' %}&#32;
+                    <span class="Order-numberOrder">№{{ order.id }} </span>&#32;{% translate 'от' %}&#32;
+                    <span class="Order-dateOrder">{{ order.created_at|date:"d.m.Y" }}</span>
+                  </a>
+                </div>
+                <div class="row-block">
+                  <div class="Order-info Order-info_delivery">
+                    <div class="Order-infoType">{% translate 'Тип доставки' %}:
+                    </div>
+                    <div class="Order-infoContent">{{ order.get_delivery_type_display }}
+                    </div>
+                  </div>
+                  <div class="Order-info Order-info_pay">
+                    <div class="Order-infoType">{% translate 'Оплата' %}:
+                    </div>
+                    <div class="Order-infoContent">{{ order.get_payment_display }}
+                    </div>
+                  </div>
+                  <div class="Order-info">
+                    <div class="Order-infoType">{% translate 'Общая стоимость' %}:
+                    </div>
+                    <div class="Order-infoContent"><span class="Order-price">{{ order.total_payment }}$</span>
+                    </div>
+                  </div>
+                  <div class="Order-info Order-info_status">
+                    <div class="Order-infoType">{% translate 'Статус' %}:
+                    </div>
+                    <div class="Order-infoContent">{{ order.get_status_display }}
+                    </div>
+                  </div>
+                  {% if order.status_exception %}
+                    <div class="Order-info Order-info_error">
+                      <div class="Order-infoType">{% translate 'Оплата не прошла' %}:
+                      </div>
+                      <div class="Order-infoContent">{{ order.status_exception }}
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>{% translate 'У вас нет заказов' %}</h5>
+    {% endif %}
+  </div>
+{% endblock %}

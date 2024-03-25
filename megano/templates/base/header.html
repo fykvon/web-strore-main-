@@ -1,0 +1,279 @@
+<!--END-->
+<!--END-->
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie7" lang="ru">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie8" lang="ru">
+<![endif]-->
+<!--[if IE 9]>
+<html class="ie9" lang="ru">
+<![endif]-->
+<!--[if IE 10]>
+<html class="ie10" lang="ru">
+<![endif]-->
+<!--[if IE 11]>
+<html class="ie11" lang="ru">
+<![endif]-->
+<!--[if gt IE 11]><!-->
+<html lang="ru">
+<!--<![endif]-->
+{% load static %}
+{% load mptt_tags %}
+{% load i18n static %}
+<head>
+  <title>{{ mount.get_site_name }}</title>
+  <meta name="description" content={% translate 'Описание страницы' %}>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <link href="{% static 'assets/img/favicon.ico' %}" rel="shortcut icon">
+  <link rel="preload" href='{% static "assets/fonts/Roboto/Roboto-Regular.woff" %}' as="font">
+  <link rel="preload" href='{% static "assets/fonts/Roboto/Roboto-Italic.woff" %}' as="font">
+  <link rel="preload" href='{% static "assets/fonts/Roboto/Roboto-Bold.woff" %}' as="font">
+  <link rel="preload" href='{% static "assets/fonts/Roboto/Roboto-Bold_Italic.woff" %}' as="font">
+  <link rel="preload" href='{% static "assets/fonts/Roboto/Roboto-Light.woff" %}' as="font">
+  <link rel="preload" href='{% static "assets/fonts/Roboto/Roboto-Light_Italic.woff" %}' as="font">
+  <link rel="stylesheet" href='{% static "assets/css/fonts.css" %}'>
+  <link rel="stylesheet" href='{% static "assets/css/basic.css" %}'>
+  <link rel="stylesheet" href='{% static "assets/css/extra.css" %}'>
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  <script src='{% static "assets/plg/CountDown/countdown.js" %}'></script>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+<body class="Site">
+<!--if lt IE 8
+p.error-browser
+  | Ваш браузер&nbsp;
+  em устарел!&nbsp;
+  a(href="http://browsehappy.com/") Выберите новую версию
+      +s
+      | браузера здесь&nbsp;
+  | для правильного отображения сайта.
+-->
+<header class="Header">
+  <div class="ControlPanel">
+    <div class="wrap">
+      <div class="row ControlPanel-row">
+        <div class="row-block">
+          <div class="row ControlPanel-rowSplit">
+            <div class="row-block hide_700">
+              <ul class="menu menu_img menu_smallImg ControlPanel-menu">
+                <li class="menu-item"><a class="menu-link" href="#"><img
+                    src="{% static 'assets/img/icons/socialHeader/tw.svg' %}" alt="tw.svg"/></a>
+                </li>
+                <li class="menu-item"><a class="menu-link" href="#"><img
+                    src="{% static 'assets/img/icons/socialHeader/in.svg' %}" alt="in.svg"/></a>
+                </li>
+                <li class="menu-item"><a class="menu-link" href="#"><img
+                    src="{% static 'assets/img/icons/socialHeader/pt.svg' %}" alt="pt.svg"/></a>
+                </li>
+                <li class="menu-item"><a class="menu-link" href="#"><img
+                    src="{% static 'assets/img/icons/socialHeader/mail.svg' %}" alt="mail.svg"/></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <nav class="row-block">
+          <div class="row ControlPanel-rowSplit">
+            <div class="row-block">
+              <form class="flex" action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <div class="reset-input">
+                  <input name="text" type="hidden" value="{{ redirect_to }}">
+                  <select class="select-language" name="language">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                      <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                              selected{% endif %}>
+                        {{ language.name_local }} ({{ language.code }})
+                      </option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <button class="btn-language" type="submit">Go</button>
+              </form>
+              {% if not user.is_authenticated %}
+                <a class="ControlPanel-title" href="{% url 'profile:login' %}">{% translate 'Вход' %}</a>
+                <a class="ControlPanel-title" href="{% url 'profile:register' %}">{% translate 'Регистрация ' %}</a>
+              {% else %}
+                <a class="ControlPanel-title"
+                   href="{% url 'profile:profile_details' slug=user.profile.slug %}">
+                  {% translate 'Личный кабинет ' %}</a>
+                <a class="ControlPanel-title" href="{% url 'profile:logout' %}">{% translate 'Выход' %}</a>
+              {% endif %}
+
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!--+div.menuModal#navigate
+//    +menu([
+//        ['Главная','index.html'],
+//        ['Портфолио','index.html'],
+//        ['Мои проекты','index.html'],
+//        ['Контакты','index.html']
+//    ], page === 'article'? 'Портфолио': 'Главная')._main
+
+block
+-->
+  </div>
+  <div class="wrap">
+    <div class="row Header-rowMain">
+      <div class="row-block Header-logo">
+        <a class="logo" href="{% url 'store:index' %}">
+          <img class="logo-image"
+               src="{% static 'assets/img/logo.png' %}"
+               alt="logo.png"/>
+        </a>
+      </div>
+      {% if '/register/' not in request.path and '/login/' not in request.path %}
+        <nav class="row-block row-block_right Header-menu">
+          <div class="menuModal" id="navigate">
+            <ul class="menu menu_main">
+              <li class="menu-item"><a class="menu-link" href="{% url 'store:index' %}">
+                {% translate 'Главная' %}</a>
+              </li>
+              <li class="menu-item"><span class="menu-label menu-label_success">{% translate 'Скидки' %}
+                            </span><a
+                  class="menu-link"
+                  href="{% url 'store:catalog' %}">{% translate 'Каталог' %}</a>
+              </li>
+              <li class="menu-item"><a class="menu-link"
+                                       href="{% url 'compare:comparison' %}">{% translate 'Сравнение' %}
+              </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="row-block">
+          <div class="CartBlock">
+            {% if user.is_authenticated %}
+              <div class="dropdown">
+                <button class="dropbtn">
+                  <img class="CartBlock-img"
+                       src="{% static 'assets/img/icons/loon-icon.svg' %}"
+                       alt="loon-icon.svg}"/>
+                </button>
+                <div class="dropdown-content">
+                  <a class="dropdown-content-a"
+                     href="{% url 'profile:profile_details' slug=user.profile.slug %}">
+                    {% translate 'Личный кабинет' %}</a>
+                  {% if user.is_superuser %}
+                    <a class="dropdown-content-a" href="/admin">
+                      {% translate 'Административный раздел' %}</a>
+                  {% endif %}
+                  <a class="dropdown-content-a" href="account.html">{% translate 'Выход' %}</a>
+                </div>
+              </div>
+            {% endif %}
+            {% with total_items=cart|length %}
+              <a class="CartBlock-block" href="{% url 'cart:index' %}">
+                <img class="CartBlock-img"
+                     src="{% static 'assets/img/icons/cart.svg' %}"
+                     alt="cart.svg"/>
+                <span class="CartBlock-amount">{{ total_items }}</span>
+              </a>
+              <div class="CartBlock-block"><span class="CartBlock-price">{{ total_price }}$</span>
+              </div>
+            {% endwith %}
+          </div>
+        </div>
+        <div class="row-block Header-trigger">
+          <a class="menuTrigger" href="#navigate">
+            <div class="menuTrigger-content">{% translate 'Показать навигацию' %}
+            </div>
+            <span></span><span></span><span></span>
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if '/register/' not in request.path and '/login/' not in request.path %}
+    <div class="Header-searchWrap">
+      <div class="wrap">
+        <div class="Header-categories">
+          <div class="CategoriesButton">
+            <div class="CategoriesButton-title">
+              <div class="CategoriesButton-icon"><img src="{% static 'assets/img/icons/allDep.svg' %}"
+                                                      alt="allDep.svg"/>
+              </div>
+              <span class="CategoriesButton-text">{% translate 'Все категории' %}</span>
+              <div class="CategoriesButton-arrow">
+              </div>
+            </div>
+            <ul class="root">
+              <div class="CategoriesButton-content">
+                {% recursetree static_template_category %}
+                  <div class="CategoriesButton-link">
+                    <a {% if node.name == 'Discounts' or node.name == 'Скидки' %} href="{% url 'store:discounts' %}"
+                                                                                  {% else %}href="{% url 'store:category' slug=node.slug %}"
+                    {% endif %}>
+                      <div class="CategoriesButton-icon">
+                        <img src="{% get_static_prefix %}assets/img/icons/departments/{{ node.sort_index }}.svg"
+                             alt=""/>
+                      </div>
+                      <span class="CategoriesButton-text">{{ node.name }}</span>
+                    </a>
+                    {% if not node.is_leaf_node %}
+                      <a class="CategoriesButton-arrow" href="#"></a>
+                      <div class="CategoriesButton-submenu">
+                        {% for child in node.children.all %}
+                          <a class="CategoriesButton-link"
+                             href="{% url 'store:category' slug=child.slug %}">
+                            <div class="CategoriesButton-icon">
+                              <img src="{% get_static_prefix %}assets/img/icons/departments/{{ child.sort_index }}.svg"
+                                   alt=""/>
+                            </div>
+                            <span class="CategoriesButton-text">{{ child.name }}</span>
+                          </a>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
+                  </div>
+                {% endrecursetree %}
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div class="Header-searchLink"><img src="{% static 'assets/img/icons/search.svg' %}" alt="search.svg"/>
+        </div>
+        <div class="Header-search">
+          <div class="search">
+            <form class="form form_search" action="{% url 'store:catalog' %}" method="get">
+              {% csrf_token %}
+              {{ form_search.name }}
+              <button class="search-button" type="submit" name="search" id="search"><img
+                  src="{% static 'assets/img/icons/search.svg' %}" alt="search.svg"/>{% translate 'Поиск' %}
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  <link rel="stylesheet" href="{% static 'assets/css/toast.min.css' %}">
+  <script src='{% static "assets/js/toast.min.js" %}'></script>
+  {% if list_message %}
+    {% for message in list_message %}
+      <script>
+          new ToastMin({
+              title: '{{ message.title }}',
+              text: '{{ message.text }}',
+              theme: 'light',
+              autohide: true,
+              interval: 10000
+          });
+      </script>
+    {% endfor %}
+  {% endif %}
+
+</header>
